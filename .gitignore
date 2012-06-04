@@ -18,5 +18,6 @@ notes/
 log/
 migrations/
 static/media/
+!ghhwhatis/urls.py
 
 
