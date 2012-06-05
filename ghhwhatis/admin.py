@@ -3,7 +3,6 @@ from django.contrib import admin
 from mezzanine.core.admin import DisplayableAdmin
 
 
-
 class DifferncePageAdmin(DisplayableAdmin):
 
     fieldsets = [

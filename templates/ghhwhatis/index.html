@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% load mezzanine_tags keyword_tags %}
+
+{% block meta_title %}Testing Index Page{% endblock %}
+
+{% comment %}{% block meta_keywords %}{% metablock %}
+{% keywords_for page as keywords %}
+{% for keyword in keywords %}
+    {% if not forloop.first %}, {% endif %}
+    {{ keyword }}
+{% endfor %}
+{% endmetablock %}{% endblock %}{% endcomment %}
+
+{% block meta_description %}{% metablock %}
+{#{{ page.description }}#}
+    Meta Description Man
+{% endmetablock %}{% endblock %}
+
+{% block title %}
+{#{% editable page.title %}{{ page.title }}{% endeditable %}#}
+    Page Title
+{% endblock %}
+
+{% block main %}
+    Main Content Area
+{% endblock %}

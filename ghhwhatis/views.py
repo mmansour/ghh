@@ -1,14 +1,11 @@
-# Create your views here.
-from django.http import HttpResponse, Http404
+from ghhwhatis.models import DifferncePage
+from django.shortcuts import render_to_response, get_object_or_404
+from django.template import RequestContext
+from django.http import HttpResponse, Http404, HttpResponsePermanentRedirect
 
 def what_is(request):
-    try:
-        # Retrieve the user account associated with the current subdomain.
-#        user = User.objects.get(username=request.subdomain)
-        print request.subdomain
-        return HttpResponse(request.subdomain)
-    except:
-#    except User.DoesNotExist:
-        # No user matches the current subdomain, so return a generic 404.
-        raise Http404
+    
+    return render_to_response('ghhwhatis/index.html',
+                       {},
+                        context_instance=RequestContext(request))
 
