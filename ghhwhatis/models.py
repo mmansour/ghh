@@ -8,9 +8,9 @@ class DifferncePage(Displayable):
     subject_one_data = RichTextField(blank=True, verbose_name="Subject One Data")
     subject_two_data = RichTextField(blank=True, verbose_name="Subject Two Data")
 
-#    @models.permalink
-#    def get_absolute_url(self):
-#        return ('ghhwhatis.views.what_is', [self.slug,])
+    @models.permalink
+    def get_absolute_url(self):
+        return ('ghhwhatis.views.what_is', [self.slug,])
 
     def __unicode__(self):
         return self.title
