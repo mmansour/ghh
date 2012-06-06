@@ -4,9 +4,9 @@ admin.autodiscover()
 
 from mezzanine.core.views import direct_to_template
 
-#urlpatterns = patterns('ghhwhatis.views',
-#    url(r'^(?P<page_slug>[\w-]+)/$', 'what_is'),
-#)
+urlpatterns = patterns('ghhwhatis.views',
+    url(r'^(?P<page_slug>[\w-]+)/$', 'what_is'),
+)
 
 
 
