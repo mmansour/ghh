@@ -1,13 +1,12 @@
-from django.conf.urls.defaults import patterns, include, url
+from django.conf.urls.defaults import *
 from django.contrib import admin
+admin.autodiscover()
 
 from mezzanine.core.views import direct_to_template
 
-urlpatterns = patterns('ghhwhatis.views',
-#    url(r'^(?P<pageslug>\w+)/$', 'what_is'),
-    url(r'^test/$', 'what_is'),
-
-)
+#urlpatterns = patterns('ghhwhatis.views',
+#    url(r'^(?P<page_slug>[\w-]+)/$', 'what_is'),
+#)
 
 
 
