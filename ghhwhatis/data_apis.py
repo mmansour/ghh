@@ -29,11 +29,11 @@ def get_subject_two_data(data):
     subject_two_dict['description'] = soup2.description.text
     return subject_two_dict
 
-print get_subject_one_data('spinach')['query']
-print get_subject_two_data('kale')['query']
-
-print get_subject_one_data('spinach')['description']
-print get_subject_two_data('kale')['description']
+#print get_subject_one_data('spinach')['query']
+#print get_subject_two_data('kale')['query']
+#
+#print get_subject_one_data('spinach')['description']
+#print get_subject_two_data('kale')['description']
 
 #obj, created = DifferncePage.objects.get_or_create(subject_one='John', subject_two='Lennon',
 #                  defaults={'birthday': date(1940, 10, 9)})

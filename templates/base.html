@@ -70,7 +70,7 @@ $(function() {
 
 <ul class="breadcrumb">
 {% spaceless %}
-{% block breadcrumb_menu %}{% page_menu "pages/menus/breadcrumb.html" %}{% endblock %}
+{% block breadcrumb_menu %}{% page_menu "pages/menus/breadcrumb.html" %}{% endblock %}{% block extra_breadcrumb %}{% endblock %}
 {% endspaceless %}
 </ul>
 

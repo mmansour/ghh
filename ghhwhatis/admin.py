@@ -9,14 +9,15 @@ class DifferncePageAdmin(DisplayableAdmin):
         ("Title",                       {'fields': ['title']}),
         ("Published Date",              {'fields': ['publish_date']}),
         ("Published Status",            {'fields': ['status']}),
+        ("Allow Comments",            {'fields': ['allow_comments']}),
         ("Subject One",                 {'fields': ['subject_one']}),
         ("Subject Two",                 {'fields': ['subject_two']}),
         ("Subject One Data",            {'fields': ['subject_one_data']}),
         ("Subject Two Data",            {'fields': ['subject_two_data']}),
     ]
 
-    list_display = ('title', 'status', 'publish_date', 'subject_one', 'subject_two',)
-    list_editable = ('status',)
+    list_display = ('title', 'status', 'publish_date', 'subject_one', 'subject_two', 'allow_comments',)
+    list_editable = ('status', 'allow_comments')
     list_filter = ['status', 'publish_date',]
     search_fields = ['title',]
     date_hierarchy = 'publish_date'

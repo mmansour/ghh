@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load mezzanine_tags keyword_tags %}
+{% load mezzanine_tags comment_tags keyword_tags rating_tags i18n  %}
 
 {% block meta_title %}{{ diffdata.title }}{% endblock %}
 
@@ -19,6 +19,10 @@ This page describes the differences and nuances between {{ diffdata.title }}
 {{ diffdata.title }}
 {% endblock %}
 
+{% block extra_breadcrumb %}
+    <li>{{ diffdata.slug }}</li>
+{% endblock %}
+
 {% block main %}
     <div id="subject_one">
     {{ diffdata.subject_one|safe }}
@@ -27,5 +31,20 @@ This page describes the differences and nuances between {{ diffdata.title }}
     <div id="subject_two">
     {{ diffdata.subject_two|safe }}
     {{ diffdata.subject_two_data|safe }}
+    </div>
+    <div>
+    {% if diffdata.allow_comments %}(<a href="#comments">{% spaceless %}
+        {% blocktrans count diffdata.comments_count as comments_count %}
+        1 comment
+        {% plural %}
+        {{ comments_count }} comments
+        {% endblocktrans %}
+    {% endspaceless %}</a>){% endif %}
+    </div>
+    <div>
+        {% rating_for diffdata %}
+    </div>
+    <div>
+        {% if diffdata.allow_comments %}{% comments_for diffdata %}{% endif %}
     </div>
 {% endblock %}
