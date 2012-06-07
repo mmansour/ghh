@@ -23,15 +23,21 @@ This page describes the differences and nuances between {{ diffdata.title }}
     <li>{{ diffdata.slug }}</li>
 {% endblock %}
 
+{% block extra_header %}
+    Compare:
+{% endblock %}
+
 {% block main %}
     <div id="subject_one">
-    {{ diffdata.subject_one|safe }}
+    Query: <em>{{ diffdata.subject_one|safe }}</em><br />
     {{ diffdata.subject_one_data|safe}}
     </div>
+    <hr />
     <div id="subject_two">
-    {{ diffdata.subject_two|safe }}
+    Query: <em>{{ diffdata.subject_two|safe }}</em><br />
     {{ diffdata.subject_two_data|safe }}
     </div>
+    <hr />
     <div>
     {% if diffdata.allow_comments %}(<a href="#comments">{% spaceless %}
         {% blocktrans count diffdata.comments_count as comments_count %}
@@ -41,9 +47,11 @@ This page describes the differences and nuances between {{ diffdata.title }}
         {% endblocktrans %}
     {% endspaceless %}</a>){% endif %}
     </div>
+    <hr />
     <div>
         {% rating_for diffdata %}
     </div>
+    <hr />
     <div>
         {% if diffdata.allow_comments %}{% comments_for diffdata %}{% endif %}
     </div>

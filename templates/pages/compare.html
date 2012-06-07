@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+{% load mezzanine_tags keyword_tags %}
+
+{% block meta_title %}{{ page.title }}{% endblock %}
+
+{% block meta_keywords %}{% metablock %}
+{% keywords_for page as keywords %}
+{% for keyword in keywords %}
+    {% if not forloop.first %}, {% endif %}
+    {{ keyword }}
+{% endfor %}
+{% endmetablock %}{% endblock %}
+
+{% block meta_description %}{% metablock %}
+{{ page.description }}
+{% endmetablock %}{% endblock %}
+
+{% block title %}
+{% editable page.title %}{{ page.title }}{% endeditable %}
+{% endblock %}
+
+{% block extra_head %}
+<script type="text/javascript">
+
+$(document).ready(function(){
+
+    $('input[name=subject_one]').focus(function(){
+        $(this).val('');
+    });
+
+    $('input[name=subject_two]').focus(function(){
+        $(this).val('');
+    });
+
+});
+</script>
+{% endblock %}
+{% block main %}
+    Enter two subjects in the form below to bring to light the difference between them: 
+    <div id="contact-form">
+        <form action="" method="post" id="contact">
+            {% csrf_token %}
+            <table border="0">
+            <tr>
+                <td>{{ form.subject_one.errors }}{{ form.subject_one }}</td>
+                <td>{{ form.subject_two.errors }}{{ form.subject_two }}</td>
+            </tr>
+            <tr>
+                <td colspan="2" align="right"><input type="submit" value="Submit" /></td>
+            </tr>
+           </table>
+        </form>
+    </div>
+
+    {% comment %}<div>
+    {{ subject_one_subject }}
+    </div>
+    <div>
+    {{ subject_one_description }}
+    </div>
+    <div>
+    {{ subject_two_subject }}
+    </div>
+    <div>
+    {{ subject_two_description }}
+    </div>{% endcomment %}
+
+{% endblock %}
