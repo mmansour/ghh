@@ -4,6 +4,8 @@ from mezzanine.pages.page_processors import processor_for
 from ghhwhatis.models import DifferncePage, Displayable
 from django.utils.translation import ugettext_lazy as _
 from ghhwhatis.data_apis import *
+from django.db.models import Q
+from mezzanine.utils.urls import slugify
 
 class DifferenceForm(forms.Form):
     subject_one = forms.CharField(initial='Subject One')
@@ -17,52 +19,57 @@ def get_data(request, page):
         form = DifferenceForm(request.POST, auto_id='%s')
         if form.is_valid():
 
-            sub_one_word = form.cleaned_data['subject_one']
-            sub_two_word = form.cleaned_data['subject_two']
+            sub_one_word = form.cleaned_data['subject_one'].lower()
+            sub_two_word = form.cleaned_data['subject_two'].lower()
+
+            sub_one_word_slugged = slugify(sub_one_word)
+            sub_two_word_slugged = slugify(sub_two_word)
+
+            # FORCE WORDS TO BE IN CERTAIN ORDER TO AVOID DUPE CONTENT
+            word_list = [sub_one_word_slugged, sub_two_word_slugged]
+            word_list_sorted = sorted(word_list)
+
+            page_slug = "{0}-and-{1}".format(word_list_sorted[0],word_list_sorted[1])
+            page_title = "{0} and {1}".format(word_list_sorted[0], word_list_sorted[1])
+#            print "The slugged words are {0}, {1} - Page Title {2} - Page Slug {3} "\
+#                .format(sub_one_word_slugged, sub_two_word_slugged, page_title, page_slug)
 
             try:
-                subject_one_subject=get_subject_one_data(sub_one_word)['query']
-                subject_one_description = get_subject_one_data(sub_one_word)['description']
-            except Exception:
-                errormsg1 = "First Subject Not Found. Could be a technical glitch or spelling error."
-                return{'form':form,'errormsg1':errormsg1}
+                obj = DifferncePage.objects.get(subject_one=word_list_sorted[0],subject_two=word_list_sorted[1])
+                redirect = "{0}{1}/".format(request.path, obj.slug)
+                return HttpResponseRedirect(redirect)
 
-            try:
-                subject_two_subject=get_subject_two_data(sub_two_word)['query']
-                subject_two_description = get_subject_two_data(sub_two_word)['description']
-            except Exception:
-                errormsg2 = "Second Subject Not Found. Could be a technical glitch or spelling error."
-                return{'form':form,'errormsg2':errormsg2}
-            
-            page_slug = "{0}-and-{1}".format(subject_one_subject,subject_two_subject)
+            except DifferncePage.DoesNotExist:
+                print 'obj does not exist'
+                
+                try:
+                    subject_one_subject=get_subject_one_data(word_list_sorted[0])['query']
+                    subject_one_description = get_subject_one_data(word_list_sorted[0])['description']
+                except Exception:
+                    errormsg1 = "First Subject Not Found. Could be a technical glitch or spelling error."
+                    return{'form':form,'errormsg1':errormsg1}
 
-            obj, created = DifferncePage.objects.get_or_create(title=page_slug, subject_one=sub_one_word, subject_two=sub_two_word,
-                                                       subject_one_data=subject_one_description,
-                                                       subject_two_data=subject_two_description, defaults={})
+                try:
+                    subject_two_subject=get_subject_two_data(word_list_sorted[1])['query']
+                    subject_two_description = get_subject_two_data(word_list_sorted[1])['description']
+                except Exception:
+                    errormsg2 = "Second Subject Not Found. Could be a technical glitch or spelling error."
+                    return{'form':form,'errormsg2':errormsg2}
 
-            redirect = "{0}{1}".format(request.path, page_slug)
-            return HttpResponseRedirect(redirect)
+                obj = DifferncePage(title=page_title, subject_one=subject_one_subject, subject_two=subject_two_subject,
+                                    subject_one_data=subject_one_description,
+                                   subject_two_data=subject_two_description, )
+                obj.save()
+
+                redirect = "{0}{1}/".format(request.path, page_slug)
+                return HttpResponseRedirect(redirect)
+
+
+#            obj, created = DifferncePage.objects.get_or_create(title=page_title, subject_one=sub_one_word_slugged, subject_two=sub_two_word_slugged,
+#                                                       subject_one_data=subject_one_description,
+#                                                       subject_two_data=subject_two_description, defaults={})
+#
+#            redirect = "{0}{1}".format(request.path, page_slug)
+#            return HttpResponseRedirect(redirect)
         
     return{'form':form,}
-
-#    sub_one_word = 'spinach'
-#    sub_two_word = 'kale'
-#
-#    subject_one_subject=get_subject_one_data(sub_one_word)['query']
-#    subject_two_subject=get_subject_two_data(sub_two_word)['query']
-#
-#    subject_one_description = get_subject_one_data(sub_one_word)['description']
-#    subject_two_description = get_subject_two_data(sub_two_word)['description']
-#
-#    page_slug = "{0}-and-{1}".format(subject_one_subject,subject_two_subject)
-#
-#    obj, created = DifferncePage.objects.get_or_create(title=page_slug, subject_one=sub_one_word, subject_two=sub_two_word,
-#                                                       subject_one_data=subject_one_description,
-#                                                       subject_two_data=subject_two_description,
-#                  defaults={})
-#
-#    return {'subject_one_subject':subject_one_subject,
-#            'subject_one_description':subject_one_description,
-#            'subject_two_subject':subject_two_subject,
-#            'subject_two_description':subject_two_description,
-#    }
