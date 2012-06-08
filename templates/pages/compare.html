@@ -31,12 +31,14 @@ $(document).ready(function(){
     $('input[name=subject_two]').focus(function(){
         $(this).val('');
     });
-
 });
 </script>
 {% endblock %}
+
 {% block main %}
-    Enter two subjects in the form below to bring to light the difference between them: 
+    <p>
+    Enter two subjects in the form below to elucidate the difference between them:
+    </p>
     <div id="contact-form">
         <form action="" method="post" id="contact">
             {% csrf_token %}
@@ -66,3 +68,5 @@ $(document).ready(function(){
     </div>{% endcomment %}
 
 {% endblock %}
+
+{% block extra_header %}<h1>Compare two subjects:</h1>{% endblock %}
