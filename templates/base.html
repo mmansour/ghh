@@ -17,6 +17,7 @@
 <link rel="stylesheet" href="{{ STATIC_URL }}css/bootstrap.css">
 <link rel="stylesheet" href="{{ STATIC_URL }}css/bootstrap.responsive.css">
 <link rel="stylesheet" href="{{ STATIC_URL }}css/mezzanine.css">
+<link rel="stylesheet" href="{{ STATIC_URL }}css/global.css">
 {% if "cartridge.shop"|is_installed %}
 <link rel="stylesheet" href="{{ STATIC_URL }}css/cartridge.css">
 {% endif %}
@@ -103,20 +104,45 @@ $(function() {
 
 <footer>
 <div class="container">
-{% page_menu "pages/menus/footer.html" %}
+{% spaceless %}
+<h4>Explore Topics: </h4>
+<ol class="explore-list">
+    <li><a href='/explore-topics/a/'>A</a></li>
+    <li><a href='/explore-topics/b/'>B</a></li>
+    <li><a href='/explore-topics/c/'>C</a></li>
+    <li><a href='/explore-topics/d/'>D</a></li>
+    <li><a href='/explore-topics/e/'>E</a></li>
+    <li><a href='/explore-topics/f/'>F</a></li>
+    <li><a href='/explore-topics/g/'>G</a></li>
+    <li><a href='/explore-topics/h/'>H</a></li>
+    <li><a href='/explore-topics/i/'>I</a></li>
+    <li><a href='/explore-topics/j/'>J</a></li>
+    <li><a href='/explore-topics/k/'>K</a></li>
+    <li><a href='/explore-topics/l/'>L</a></li>
+    <li><a href='/explore-topics/m/'>M</a></li>
+    <li><a href='/explore-topics/n/'>N</a></li>
+    <li><a href='/explore-topics/o/'>O</a></li>
+    <li><a href='/explore-topics/p/'>P</a></li>
+    <li><a href='/explore-topics/q/'>Q</a></li>
+    <li><a href='/explore-topics/r/'>R</a></li>
+    <li><a href='/explore-topics/s/'>S</a></li>
+    <li><a href='/explore-topics/t/'>T</a></li>
+    <li><a href='/explore-topics/u/'>U</a></li>
+    <li><a href='/explore-topics/v/'>V</a></li>
+    <li><a href='/explore-topics/w/'>W</a></li>
+    <li><a href='/explore-topics/x/'>X</a></li>
+    <li><a href='/explore-topics/w/'>Y</a></li>
+    <li><a href='/explore-topics/z/'>Z</a></li>
+</ol>
+{% endspaceless %}
+{#{% page_menu "pages/menus/footer.html" %}#}
 <br style="clear:both">
 <p>
-    {% trans "Powered by" %}
-    <a href="http://mezzanine.jupo.org">Mezzanine</a>{% if "cartridge.shop"|is_installed %},
-    <a href="http://cartridge.jupo.org">Cartridge</a>{% endif %}
-    {% trans "and" %}
-    <a href="http://www.djangoproject.com">Django</a>
+    <a href="/about/">About</a>
     <span class="separator">|</span>
-    Theme by <a href="http://twitter.github.com/bootstrap/">Bootstrap</a>
-    {% if "mezzanine.mobile"|is_installed %}
+    <a href="/compare/">Compare</a>
     <span class="separator">|</span>
-    <a href="{% url set_device "mobile" %}?next={{ request.path }}">{% trans "View Mobile Site" %}</a>
-    {% endif %}
+    <a href="/contact/">Contact</a>
 </p>
 </div>
 </footer>
