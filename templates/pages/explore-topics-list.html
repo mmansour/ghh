@@ -1,19 +1,29 @@
 {% extends "base.html" %}
+{% load mezzanine_tags keyword_tags %}
 
-{% load i18n %}
+{% block meta_title %}{{ page.title }}{% endblock %}
 
-{% block meta_title %}{% trans "Home" %}{% endblock %}
+{% block meta_description %}{% metablock %}
+{{ page.description }}
+{% endmetablock %}{% endblock %}
 
-{% block title %}
-{% trans "Home" %}
+{% block extra_breadcrumb %}
+    <li>{{ page_slug|upper }}</li>
 {% endblock %}
 
-{% block breadcrumb_menu %}
-<li class="active">{% trans "Home" %}</li>
+{% block title %}
+{{ page.title }}
 {% endblock %}
 
 {% block main %}
-{% trans "This is the homepage." %}
+    <div id="explorelistaz">
+    <h3>Topics by letter <em>{{ page_slug|upper }}</em></h3>
+    <ol style='list-style-type:none'>
+    {% for t in explore_alphebet_section %}
+        <li><a href="/compare/{{ t.slug }}/">{{ t.title }}</a></li>
+    {% endfor %}
+    </ol>
+    </div>
 {% endblock %}
 
 {% block extra_footer %}

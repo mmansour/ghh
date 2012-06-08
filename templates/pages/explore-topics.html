@@ -1,19 +1,26 @@
 {% extends "base.html" %}
+{% load mezzanine_tags keyword_tags %}
 
-{% load i18n %}
+{% block meta_title %}{{ page.title }}{% endblock %}
 
-{% block meta_title %}{% trans "Home" %}{% endblock %}
+{% block meta_keywords %}{% metablock %}
+{% keywords_for page as keywords %}
+{% for keyword in keywords %}
+    {% if not forloop.first %}, {% endif %}
+    {{ keyword }}
+{% endfor %}
+{% endmetablock %}{% endblock %}
+
+{% block meta_description %}{% metablock %}
+{{ page.description }}
+{% endmetablock %}{% endblock %}
 
 {% block title %}
-{% trans "Home" %}
-{% endblock %}
-
-{% block breadcrumb_menu %}
-<li class="active">{% trans "Home" %}</li>
+{% editable page.title %}{{ page.title }}{% endeditable %}
 {% endblock %}
 
 {% block main %}
-{% trans "This is the homepage." %}
+    This is the explore topics template in and of itself ha ha
 {% endblock %}
 
 {% block extra_footer %}
