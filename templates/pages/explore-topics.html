@@ -19,10 +19,233 @@
 {% editable page.title %}{{ page.title }}{% endeditable %}
 {% endblock %}
 
-{% block main %}{% endblock %}
+{% block extra_header %}
+<h1>Explore Topics Alphabetically</h1>
+{% endblock %}
+
+{% block main %}
+    <p>Explore the topics listed below in alphabetical order.</p>
+    
+    <ol style="list-style-type: none;">
+        <li>A
+            <ul>
+                {% for a in alpha_dict.a  %}
+                    <li><a href="/compare/{{ a }}/">{{ a.title }}</a></li>
+                {% endfor %}
+            </ul>
+        </li>
+        <li>B
+            <ul>
+                {% for b in alpha_dict.b  %}
+                    <li><a href="/compare/{{ b }}/">{{ b.title }}</a></li>
+                {% endfor %}
+            </ul>
+        </li>
+        <li>C
+            <ul>
+                {% for c in alpha_dict.c  %}
+                    <li><a href="/compare/{{ c }}/">{{ c.title }}</a></li>
+                {% endfor %}
+            </ul>
+        </li>
+        <li>D
+            <ul>
+                {% for d in alpha_dict.d  %}
+                    <li><a href="/compare/{{ d }}/">{{ d.title }}</a></li>
+                {% endfor %}
+            </ul>
+        </li>
+        <li>E
+            <ul>
+                {% for e in alpha_dict.e  %}
+                    <li><a href="/compare/{{ e }}/">{{ e.title }}</a></li>
+                {% endfor %}
+            </ul>
+        </li>
+        <li>F
+            <ul>
+                {% for f in alpha_dict.f  %}
+                    <li><a href="/compare/{{ f }}/">{{ f.title }}</a></li>
+                {% endfor %}
+            </ul>
+        </li>
+        <li>G
+            <ul>
+                {% for g in alpha_dict.g  %}
+                    <li><a href="/compare/{{ g }}/">{{ g.title }}</a></li>
+                {% endfor %}
+            </ul>
+        </li>
+        <li>H
+            <ul>
+                {% for h in alpha_dict.h  %}
+                    <li><a href="/compare/{{ h }}/">{{ h.title }}</a></li>
+                {% endfor %}
+            </ul>
+        </li>
+        <li>I
+            <ul>
+                {% for i in alpha_dict.i  %}
+                    <li><a href="/compare/{{ i }}/">{{ i.title }}</a></li>
+                {% endfor %}
+            </ul>
+        </li>
+        <li>J
+            <ul>
+                {% for j in alpha_dict.j  %}
+                    <li><a href="/compare/{{ j }}/">{{ j.title }}</a></li>
+                {% endfor %}
+            </ul>
+        </li>
+         <li>K
+            <ul>
+                {% for k in alpha_dict.k  %}
+                    <li><a href="/compare/{{ k }}/">{{ k.title }}</a></li>
+                {% endfor %}
+            </ul>
+        </li>
+        <li>L
+            <ul>
+                {% for l in alpha_dict.l  %}
+                    <li><a href="/compare/{{ l }}/">{{ l.title }}</a></li>
+                {% endfor %}
+            </ul>
+        </li>
+        <li>M
+            <ul>
+                {% for m in alpha_dict.m  %}
+                    <li><a href="/compare/{{ m }}/">{{ m.title }}</a></li>
+                {% endfor %}
+            </ul>
+        </li>
+        <li>N
+            <ul>
+                {% for n in alpha_dict.n  %}
+                    <li><a href="/compare/{{ n }}/">{{ n.title }}</a></li>
+                {% endfor %}
+            </ul>
+        </li>
+        <li>O
+            <ul>
+                {% for o in alpha_dict.o  %}
+                    <li><a href="/compare/{{ o }}/">{{ o.title }}</a></li>
+                {% endfor %}
+            </ul>
+        </li>
+        <li>P
+            <ul>
+                {% for p in alpha_dict.p  %}
+                    <li><a href="/compare/{{ p }}/">{{ p.title }}</a></li>
+                {% endfor %}
+            </ul>
+        </li>
+        <li>Q
+            <ul>
+                {% for q in alpha_dict.q  %}
+                    <li><a href="/compare/{{ q }}/">{{ q.title }}</a></li>
+                {% endfor %}
+            </ul>
+        </li>
+        <li>R
+            <ul>
+                {% for r in alpha_dict.r  %}
+                    <li><a href="/compare/{{ r }}/">{{ r.title }}</a></li>
+                {% endfor %}
+            </ul>
+        </li>
+        <li>S
+            <ul>
+                {% for s in alpha_dict.s  %}
+                    <li><a href="/compare/{{ s }}/">{{ s.title }}</a></li>
+                {% endfor %}
+            </ul>
+        </li>
+        <li>T
+            <ul>
+                {% for t in alpha_dict.t  %}
+                    <li><a href="/compare/{{ t }}/">{{ t.title }}</a></li>
+                {% endfor %}
+            </ul>
+        </li>
+        <li>U
+            <ul>
+                {% for u in alpha_dict.u  %}
+                    <li><a href="/compare/{{ u }}/">{{ u.title }}</a></li>
+                {% endfor %}
+            </ul>
+        </li>
+        <li>V
+            <ul>
+                {% for v in alpha_dict.v  %}
+                    <li><a href="/compare/{{ v }}/">{{ v.title }}</a></li>
+                {% endfor %}
+            </ul>
+        </li>
+        <li>W
+            <ul>
+                {% for w in alpha_dict.w  %}
+                    <li><a href="/compare/{{ w }}/">{{ w.title }}</a></li>
+                {% endfor %}
+            </ul>
+        </li>
+        <li>X
+            <ul>
+                {% for x in alpha_dict.x  %}
+                    <li><a href="/compare/{{ x }}/">{{ x.title }}</a></li>
+                {% endfor %}
+            </ul>
+        </li>
+        <li>Y
+            <ul>
+                {% for y in alpha_dict.y  %}
+                    <li><a href="/compare/{{ y }}/">{{ y.title }}</a></li>
+                {% endfor %}
+            </ul>
+        </li>
+        <li>Z
+            <ul>
+                {% for z in alpha_dict.z  %}
+                    <li><a href="/compare/{{ z }}/">{{ z.title }}</a></li>
+                {% endfor %}
+            </ul>
+        </li>
+    </ol>
+
+
+    {% comment %}{% spaceless %}
+    <ol style="list-style-type: none; display: inline;">
+        <li><a href='/explore-topics/a/'>A</a></li>
+        <li><a href='/explore-topics/b/'>B</a></li>
+        <li><a href='/explore-topics/c/'>C</a></li>
+        <li><a href='/explore-topics/d/'>D</a></li>
+        <li><a href='/explore-topics/e/'>E</a></li>
+        <li><a href='/explore-topics/f/'>F</a></li>
+        <li><a href='/explore-topics/g/'>G</a></li>
+        <li><a href='/explore-topics/h/'>H</a></li>
+        <li><a href='/explore-topics/i/'>I</a></li>
+        <li><a href='/explore-topics/j/'>J</a></li>
+        <li><a href='/explore-topics/k/'>K</a></li>
+        <li><a href='/explore-topics/l/'>L</a></li>
+        <li><a href='/explore-topics/m/'>M</a></li>
+        <li><a href='/explore-topics/n/'>N</a></li>
+        <li><a href='/explore-topics/o/'>O</a></li>
+        <li><a href='/explore-topics/p/'>P</a></li>
+        <li><a href='/explore-topics/q/'>Q</a></li>
+        <li><a href='/explore-topics/r/'>R</a></li>
+        <li><a href='/explore-topics/s/'>S</a></li>
+        <li><a href='/explore-topics/t/'>T</a></li>
+        <li><a href='/explore-topics/u/'>U</a></li>
+        <li><a href='/explore-topics/v/'>V</a></li>
+        <li><a href='/explore-topics/w/'>W</a></li>
+        <li><a href='/explore-topics/x/'>X</a></li>
+        <li><a href='/explore-topics/w/'>Y</a></li>
+        <li><a href='/explore-topics/z/'>Z</a></li>
+    </ol>
+{% endspaceless %}{% endcomment %}
+{% endblock %}
 
 {% block extra_footer %}
-{% spaceless %}
+{% comment %}{% spaceless %}
 <h4>Explore Topics: </h4>
 <ol class="explore-list">
     <li><a href='/explore-topics/a/'>A</a></li>
@@ -52,5 +275,5 @@
     <li><a href='/explore-topics/w/'>Y</a></li>
     <li><a href='/explore-topics/z/'>Z</a></li>
 </ol>
-{% endspaceless %}
+{% endspaceless %}{% endcomment %}
 {% endblock %}

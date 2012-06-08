@@ -6,6 +6,18 @@ from ghhwhatis.models import DifferncePage
 from ghhwhatis.data_apis import *
 from mezzanine.utils.urls import slugify
 
+@processor_for('explore-topics')
+def get_atoz(request, page):
+    alphabet_list = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
+    alpha_dict = {}
+    diffpages = DifferncePage.objects.all().order_by('slug')
+    for l in alphabet_list:
+        alpha_dict[l] =  [dp.slug for dp in diffpages if dp.slug[0] == l]
+
+    return{'alpha_dict':alpha_dict,}
+
+
+
 class DifferenceForm(forms.Form):
     subject_one = forms.CharField(initial='Subject One')
     subject_two = forms.CharField(initial='Subject Two')
