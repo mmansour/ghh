@@ -1,10 +1,9 @@
 from django import forms
 from django.http import HttpResponseRedirect
 from mezzanine.pages.page_processors import processor_for
-from ghhwhatis.models import DifferncePage, Displayable
-from django.utils.translation import ugettext_lazy as _
+from ghhwhatis.models import DifferncePage
+#from django.utils.translation import ugettext_lazy as _
 from ghhwhatis.data_apis import *
-from django.db.models import Q
 from mezzanine.utils.urls import slugify
 
 class DifferenceForm(forms.Form):
@@ -31,8 +30,6 @@ def get_data(request, page):
 
             page_slug = "{0}-and-{1}".format(word_list_sorted[0],word_list_sorted[1])
             page_title = "{0} and {1}".format(word_list_sorted[0], word_list_sorted[1])
-#            print "The slugged words are {0}, {1} - Page Title {2} - Page Slug {3} "\
-#                .format(sub_one_word_slugged, sub_two_word_slugged, page_title, page_slug)
 
             try:
                 obj = DifferncePage.objects.get(subject_one=word_list_sorted[0],subject_two=word_list_sorted[1])
@@ -64,12 +61,4 @@ def get_data(request, page):
                 redirect = "{0}{1}/".format(request.path, page_slug)
                 return HttpResponseRedirect(redirect)
 
-
-#            obj, created = DifferncePage.objects.get_or_create(title=page_title, subject_one=sub_one_word_slugged, subject_two=sub_two_word_slugged,
-#                                                       subject_one_data=subject_one_description,
-#                                                       subject_two_data=subject_two_description, defaults={})
-#
-#            redirect = "{0}{1}".format(request.path, page_slug)
-#            return HttpResponseRedirect(redirect)
-        
     return{'form':form,}
