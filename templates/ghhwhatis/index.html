@@ -23,7 +23,7 @@ This page describes the differences and nuances between {{ diffdata.title }}
     <li>{{ diffdata.title }}</li>
 {% endblock %}
 
-{% block extra_header %}<h1>{{ diffdata.title }}:</h1>{% endblock %}
+{% block extra_header %}<h1>{{ diffdata.title|upper }}</h1>{% endblock %}
 
 {% block main %}
     <div id="subject_one">
