@@ -1,6 +1,7 @@
 ############################################## BEAUTIFULSOUP
 import urllib2
 from bs4 import BeautifulSoup
+import json
 
 #SUBJECT 1
 def get_subject_one_data(data):
@@ -29,11 +30,29 @@ def get_subject_two_data(data):
     subject_two_dict['description'] = soup2.description.text
     return subject_two_dict
 
-#print get_subject_one_data('spinach')['query']
-#print get_subject_two_data('kale')['query']
-#
-#print get_subject_one_data('spinach')['description']
-#print get_subject_two_data('kale')['description']
+def get_subject_one_data_wordnik(data):
+    subject_one_dict_worknik = {}
+    subject_one_wiki_url_worknik = "http://api.wordnik.com/v4/word.json/{0}/definitions?includeRelated=false&api_key=519d0af2e2370620f995a280fbb039228c81c5a4eaa0a8e07&includeTags=false&useCanonical=false"\
+        .format(urllib2.quote(data))
+    req1 = urllib2.Request(subject_one_wiki_url_worknik)
+    resp1 = urllib2.urlopen(req1)
+    print json.load(resp1)
 
-#obj, created = DifferncePage.objects.get_or_create(subject_one='John', subject_two='Lennon',
-#                  defaults={'birthday': date(1940, 10, 9)})
+#    respjson1 = json.load(resp1)
+#    print respjson1[0]
+#    print respjson1[0]['word']
+#    print respjson1[0]['partOfSpeech']
+#    print respjson1[0]['text']
+#    print respjson1[0]['attributionText']
+#    xml1 = resp1.read()
+#    soup1 = BeautifulSoup(xml1)
+##    print soup1.prettify()
+##    print soup1.definition.attributiontext.text
+##    print soup1.definition.word.text
+#    print soup1.findAll(sequence="0")[0].prettify()
+#    print soup1.findAll(sequence="0")[0].word.text
+#    print soup1.findAll(sequence="0")[0].attributiontext.text
+#    print soup1.findAll(sequence="0")[0].partofspeech.text
+#    print soup1.findAll(sequence="0")[0]
+
+get_subject_one_data_wordnik('dog')
