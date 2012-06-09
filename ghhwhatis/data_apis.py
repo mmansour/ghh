@@ -35,17 +35,20 @@ def get_subject_one_data_dictservice(data):
     client = Client('http://services.aonaware.com/DictService/DictService.asmx?WSDL')
 #    print client.service.Define(data)
     subject_one_dict_dictservice['query'] = client.service.Define(data)[0]
-    subject_one_dict_dictservice['data'] = [[d.Dictionary.Name,d.WordDefinition]
-        for d in client.service.Define(data)[1].Definition]
+    subject_one_dict_dictservice['datalist'] = [[d.Dictionary.Name,d.WordDefinition]
+                                                for d in client.service.Define(data)[1].Definition]
+    subject_one_data = {}
+    subject_one_source_list = []
+    subject_one_data_list = []
 
-#    print client.service.Define(data)[1]
-#    for d in client.service.Define(data)[1].Definition:
-#        print d.Dictionary
-#        print d.WordDefinition
-#        subject_one_dict_dictservice['source'] = d.Dictionary.Name
-#        subject_one_dict_dictservice['definition'] = d.WordDefinition
-    print subject_one_dict_dictservice['data'][1][1]
-#    print subject_one_dict_dictservice['data'][2][0]
+    for datasource, datavalue in subject_one_dict_dictservice['datalist']:
+         subject_one_source_list.append(datasource)
+         subject_one_data_list.append(datavalue)
+        
+    subject_one_data['sources'] = subject_one_source_list
+    subject_one_data['data'] = subject_one_data_list
 
+    print '<br />'.join(subject_one_data['sources'])
+    print ''.join(subject_one_data['data'])
 
-get_subject_one_data_dictservice('Cabbage')
+get_subject_one_data_dictservice('new york')
