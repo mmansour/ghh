@@ -31,17 +31,21 @@ def get_subject_two_data(data):
     return subject_two_dict
 
 def get_subject_one_data_dictservice(data):
-
+    subject_one_dict_dictservice = {}
     client = Client('http://services.aonaware.com/DictService/DictService.asmx?WSDL')
-    print client
+#    print client.service.Define(data)
+    subject_one_dict_dictservice['query'] = client.service.Define(data)[0]
+    subject_one_dict_dictservice['data'] = [[d.Dictionary.Name,d.WordDefinition]
+        for d in client.service.Define(data)[1].Definition]
 
-#    subject_one_dict_dictservice = {}
-#    subject_one_wiki_url_dictservice = "http://services.aonaware.com/DictService/Default.aspx?action=define&dict=*&query={0}"\
-#        .format(data)
-#    req1 = urllib2.Request(subject_one_wiki_url_dictservice)
-#    resp1 = urllib2.urlopen(req1)
-#    xml1 = resp1.read()
-#
-#    print xml1
+#    print client.service.Define(data)[1]
+#    for d in client.service.Define(data)[1].Definition:
+#        print d.Dictionary
+#        print d.WordDefinition
+#        subject_one_dict_dictservice['source'] = d.Dictionary.Name
+#        subject_one_dict_dictservice['definition'] = d.WordDefinition
+    print subject_one_dict_dictservice['data'][1][1]
+#    print subject_one_dict_dictservice['data'][2][0]
 
-get_subject_one_data_dictservice('dog')
+
+get_subject_one_data_dictservice('Cabbage')
