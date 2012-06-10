@@ -42,6 +42,8 @@ Enter two subjects in the form below to elucidate the difference between them:
 <div id="contact-form">
     <form action="" method="post" id="contact">
         {% csrf_token %}
+        {{ errormsg1|safe }}
+        {{ errormsg2|safe }}
         {{ form.as_p }}
         <input type="submit" value="Submit" />
         {% comment %}<table border="0">

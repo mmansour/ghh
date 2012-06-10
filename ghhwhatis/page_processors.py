@@ -42,6 +42,8 @@ def get_data(request, page):
             page_slug = "{0}-and-{1}".format(word_list_sorted[0],word_list_sorted[1])
             page_title = "{0} and {1}".format(word_list_sorted[0], word_list_sorted[1])
 
+            print word_list_sorted
+
             try:
                 obj = DifferncePage.objects.get(subject_one=word_list_sorted[0],subject_two=word_list_sorted[1])
                 redirect = "{0}{1}/".format(request.path, obj.slug)
@@ -55,7 +57,7 @@ def get_data(request, page):
                     subject_one_description = get_subject_one_data(word_list_sorted[0])['description']
                     subject_one_description_dictservice ='<p />'.join(get_subject_one_data_dictservice(word_list_sorted[0])['data'])
                 except Exception:
-                    errormsg1 = "Not Found. Check spelling. Make singular. Could be tech glitch!"
+                    errormsg1 = "<strong>Subject #1 Not Found</strong>: <ul><li>Check spelling</li><li>Make singular</li><li>Could be tech glitch!</li></ul>"
                     return{'form':form,'errormsg1':errormsg1}
 
                 try:
@@ -63,7 +65,7 @@ def get_data(request, page):
                     subject_two_description = get_subject_two_data(word_list_sorted[1])['description']
                     subject_two_description_dictservice ='<p />'.join(get_subject_two_data_dictservice(word_list_sorted[1])['data'])
                 except Exception:
-                    errormsg2 = "Not Found. Check spelling. Make singular. Could be tech glitch!"
+                    errormsg2 = "<strong>Subject #2 Not Found</strong>: <ul><li>Check spelling</li><li>Make singular</li><li>Could be tech glitch!</li></ul>"
                     return{'form':form,'errormsg2':errormsg2}
 
                 subject_data_sources_api ='<ul>{0} {1}</ul>'.format(
@@ -81,5 +83,5 @@ def get_data(request, page):
 
                 redirect = "{0}{1}/".format(request.path, page_slug)
                 return HttpResponseRedirect(redirect)
-#    print form.as_ul()
+#    print form.as_p()
     return{'form':form,}
