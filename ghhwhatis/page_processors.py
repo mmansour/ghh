@@ -24,6 +24,32 @@ class DifferenceForm(forms.Form):
 
 @processor_for('compare')
 def get_data(request, page):
+
+    ################################################ REENTER DATA PROCESS
+    print 'Updating Database...'
+
+    allpages = DifferncePage.objects.all()
+
+    for p in allpages:
+        
+        print p.subject_one, p.subject_two
+        subject_one_description_dictservice =''.join(get_subject_one_data_dictservice(p.subject_one)['data'])
+        subject_two_description_dictservice =''.join(get_subject_two_data_dictservice(p.subject_two)['data'])
+        subject_data_sources_api ='{0} {1}'.format(
+                    ''.join(get_subject_one_data_dictservice(p.subject_one)['sources']),
+                    ''.join(get_subject_two_data_dictservice(p.subject_two)['sources']),
+                )
+
+        obj = DifferncePage.objects.get(subject_one=p.subject_one,subject_two=p.subject_two)
+        obj.subject_one_data_dictservice = subject_one_description_dictservice
+        obj.subject_two_data_dictservice = subject_two_description_dictservice
+        obj.subject_data_sources = subject_data_sources_api
+        obj.save()
+
+        print 'Done Updating Database'
+
+    ################################################ END REENTER DATA PROCESS
+
     form = DifferenceForm(auto_id=True)
     if request.method == "POST":
         form = DifferenceForm(request.POST, auto_id=True)
@@ -41,8 +67,6 @@ def get_data(request, page):
 
             page_slug = "{0}-and-{1}".format(word_list_sorted[0],word_list_sorted[1])
             page_title = "{0} and {1}".format(word_list_sorted[0], word_list_sorted[1])
-
-            print word_list_sorted
 
             try:
                 obj = DifferncePage.objects.get(subject_one=word_list_sorted[0],subject_two=word_list_sorted[1])
