@@ -42,8 +42,10 @@ Enter two subjects in the form below to elucidate the difference between them:
 <div id="compare-form">
     <form action="" method="post" id="contact">
         {% csrf_token %}
-        <div>{{ errormsg1 }}{{ form.subject_one.errors }}<label for="subject_one">Subject one</label>{{ form.subject_one }}</div>
-        <div>{{ errormsg2 }}{{ form.subject_two.errors }}<label for="subject_two">Subject two</label>{{ form.subject_two }}</div>
+        {% comment %}{{ errormsg1 }}
+        {{ errormsg2 }}{% endcomment %}
+        <div>{{ form.subject_one.errors }}<label for="subject_one">Subject one</label>{{ form.subject_one }}</div>
+        <div>{{ form.subject_two.errors }}<label for="subject_two">Subject two</label>{{ form.subject_two }}</div>
         <div><input type="submit" value="Submit" /></div>
         {% comment %}<table border="0">
         <tr>
