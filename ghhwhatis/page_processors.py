@@ -24,7 +24,7 @@ class DifferenceForm(forms.Form):
 
 @processor_for('compare')
 def get_data(request, page):
-    form = DifferenceForm(auto_id='%s')
+    form = DifferenceForm()
 
     if request.method == "POST":
         form = DifferenceForm(request.POST, auto_id='%s')
