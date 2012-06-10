@@ -26,7 +26,7 @@ class DifferenceForm(forms.Form):
 def get_data(request, page):
     form = DifferenceForm()
     if request.method == "POST":
-        form = DifferenceForm(request.POST, auto_id='%s')
+        form = DifferenceForm(request.POST)
         if form.is_valid():
 
             sub_one_word = form.cleaned_data['subject_one'].lower()
