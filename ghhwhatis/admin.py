@@ -14,6 +14,9 @@ class DifferncePageAdmin(DisplayableAdmin):
         ("Subject Two",                 {'fields': ['subject_two']}),
         ("Subject One Data",            {'fields': ['subject_one_data']}),
         ("Subject Two Data",            {'fields': ['subject_two_data']}),
+        ("Subject One Data Dict Service",            {'fields': ['subject_one_data_dictservice']}),
+        ("Subject Two Data Dict Service",            {'fields': ['subject_two_data_dictservice']}),
+        ("Data Sources",            {'fields': ['subject_data_sources']}),
     ]
 
     list_display = ('title', 'status', 'publish_date', 'subject_one', 'subject_two', 'allow_comments',)
