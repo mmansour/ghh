@@ -68,7 +68,7 @@ def get_data(request, page):
                     errormsg2 = "<strong>Subject #2 Not Found</strong>: <ul><li>Check spelling</li><li>Make singular</li><li>Could be tech glitch!</li></ul>"
                     return{'form':form,'errormsg2':errormsg2}
 
-                subject_data_sources_api ='<ul>{0} {1}</ul>'.format(
+                subject_data_sources_api ='<ul><li />{0} {1}</ul>'.format(
                     '<li />'.join(get_subject_one_data_dictservice(word_list_sorted[0])['sources']),
                     '<li />'.join(get_subject_two_data_dictservice(word_list_sorted[1])['sources']),
                 )
