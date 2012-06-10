@@ -78,28 +78,19 @@ $(function() {
 </div>
 
 <div class="container">
-<div class="row">
-
-<div class="span3 left">
-    <div class="panel">{% page_menu "pages/menus/tree.html" %}</div>
-</div>
-
-<div class="span6 middle">
-    {% block main %}{% endblock %}
-</div>
-
-<div class="span3 right">
-    {% include "includes/user_panel.html" %}
-    <div class="panel">
-    {% block right_panel %}
-    {% if "mezzanine.twitter"|is_installed %}
-    {% include "twitter/tweets.html" %}
-    {% endif %}
-    {% endblock %}
+    <div class="row">
+        <div class="span6 left">
+        {% block leftside %}{% endblock %}
+        </div>
+        <div class="span6 right">
+        {% block rightside %}{% endblock %}
+        </div>
     </div>
-</div>
-
-</div>
+    <div class=row>
+        <div class="span12 middle">
+            {% block main %}middle section{% endblock %}
+        </div>
+    </div>
 </div>
 
 <footer>
@@ -108,7 +99,7 @@ $(function() {
 {#{% page_menu "pages/menus/footer.html" %}#}
 <br style="clear:both">
 <p>
-    <a href="/about/">About</a>
+    <a href="/">Home</a>
     <span class="separator">|</span>
     <a href="/compare/">Compare</a>
     <span class="separator">|</span>

@@ -48,7 +48,27 @@ def get_subject_one_data_dictservice(data):
     subject_one_data['sources'] = subject_one_source_list
     subject_one_data['data'] = subject_one_data_list
 
-    print '<br />'.join(subject_one_data['sources'])
-    print ''.join(subject_one_data['data'])
+    return subject_one_data
 
-get_subject_one_data_dictservice('new york')
+def get_subject_two_data_dictservice(data):
+    subject_two_dict_dictservice = {}
+    client = Client('http://services.aonaware.com/DictService/DictService.asmx?WSDL')
+#    print client.service.Define(data)
+    subject_two_dict_dictservice['query'] = client.service.Define(data)[0]
+    subject_two_dict_dictservice['datalist'] = [[d.Dictionary.Name,d.WordDefinition]
+                                                for d in client.service.Define(data)[1].Definition]
+    subject_two_data = {}
+    subject_two_source_list = []
+    subject_two_data_list = []
+
+    for datasource, datavalue in subject_two_dict_dictservice['datalist']:
+         subject_two_source_list.append(datasource)
+         subject_two_data_list.append(datavalue)
+
+    subject_two_data['sources'] = subject_two_source_list
+    subject_two_data['data'] = subject_two_data_list
+
+    return subject_two_data
+
+#print ''.join(get_subject_one_data_dictservice('new york')['data'])
+#print ''.join(get_subject_two_data_dictservice('los angeles')['data'])

@@ -54,20 +54,30 @@ def get_data(request, page):
                 try:
                     subject_one_subject=get_subject_one_data(word_list_sorted[0])['query']
                     subject_one_description = get_subject_one_data(word_list_sorted[0])['description']
+                    subject_one_description_dictservice ='<p />'.join(get_subject_one_data_dictservice(word_list_sorted[0])['data'])
                 except Exception:
-                    errormsg1 = "First Subject Not Found. Could be a technical glitch or spelling error."
+                    errormsg1 = "Not Found. Check spelling. Make singular. Could be tech glitch!"
                     return{'form':form,'errormsg1':errormsg1}
 
                 try:
                     subject_two_subject=get_subject_two_data(word_list_sorted[1])['query']
                     subject_two_description = get_subject_two_data(word_list_sorted[1])['description']
+                    subject_two_description_dictservice ='<p />'.join(get_subject_two_data_dictservice(word_list_sorted[1])['data'])
                 except Exception:
-                    errormsg2 = "Second Subject Not Found. Could be a technical glitch or spelling error."
+                    errormsg2 = "Not Found. Check spelling. Make singular. Could be tech glitch!"
                     return{'form':form,'errormsg2':errormsg2}
+
+                subject_data_sources_api ='<ul>{0} {1}</ul>'.format(
+                    '<li />'.join(get_subject_one_data_dictservice(word_list_sorted[0])['sources']),
+                    '<li />'.join(get_subject_two_data_dictservice(word_list_sorted[1])['sources']),
+                )
 
                 obj = DifferncePage(title=page_title, subject_one=subject_one_subject, subject_two=subject_two_subject,
                                     subject_one_data=subject_one_description,
-                                   subject_two_data=subject_two_description, )
+                                   subject_two_data=subject_two_description,
+                                   subject_one_data_dictservice=subject_one_description_dictservice,
+                                   subject_two_data_dictservice=subject_two_description_dictservice,
+                                   subject_data_sources = subject_data_sources_api)
                 obj.save()
 
                 redirect = "{0}{1}/".format(request.path, page_slug)
