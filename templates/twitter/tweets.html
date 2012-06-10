@@ -1,10 +1,20 @@
 
 {% load twitter_tags i18n %}
 
+{% block extra_head %}
+<script type="text/javascript">
+$(document).ready(function(){
+    $('.tweets > li').click(function(event){
+       $(this).find('a').attr('target','_blank');
+    })
+    });
+</script>
+{% endblock %}
+
 {% tweets_for_search "#difference between" 3 as tweets %}
 
 {% if tweets %}
-<h3>{% trans "Recent Tweets" %}</h3>
+<h3>{% trans "Recently Compared on Twitter" %}</h3>
 <ul class="unstyled tweets">
     {% for tweet in tweets %}
     <li>
