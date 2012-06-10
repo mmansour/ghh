@@ -6,6 +6,33 @@ from ghhwhatis.models import DifferncePage
 from ghhwhatis.data_apis import *
 from mezzanine.utils.urls import slugify
 
+def updatedb():
+    ################################################ REENTER DATA PROCESS
+    print 'Updating Database...'
+
+    allpages = DifferncePage.objects.all()
+
+    for p in allpages:
+
+        print p.subject_one, p.subject_two
+        subject_one_description_dictservice =''.join(get_subject_one_data_dictservice(p.subject_one)['data'])
+        subject_two_description_dictservice =''.join(get_subject_two_data_dictservice(p.subject_two)['data'])
+        subject_data_sources_api ='{0} {1}'.format(
+                    ''.join(get_subject_one_data_dictservice(p.subject_one)['sources']),
+                    ''.join(get_subject_two_data_dictservice(p.subject_two)['sources']),
+                )
+
+        obj = DifferncePage.objects.get(subject_one=p.subject_one,subject_two=p.subject_two)
+        obj.subject_one_data_dictservice = subject_one_description_dictservice
+        obj.subject_two_data_dictservice = subject_two_description_dictservice
+        obj.subject_data_sources = subject_data_sources_api
+        obj.save()
+
+        print 'Done Updating Database'
+
+    ############################################### END REENTER DATA PROCESS
+
+
 @processor_for('explore-topics')
 def get_atoz(request, page):
     alphabet_list = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
@@ -24,32 +51,6 @@ class DifferenceForm(forms.Form):
 
 @processor_for('compare')
 def get_data(request, page):
-
-    ################################################ REENTER DATA PROCESS
-    print 'Updating Database...'
-
-    allpages = DifferncePage.objects.all()
-
-    for p in allpages:
-        
-        print p.subject_one, p.subject_two
-        subject_one_description_dictservice =''.join(get_subject_one_data_dictservice(p.subject_one)['data'])
-        subject_two_description_dictservice =''.join(get_subject_two_data_dictservice(p.subject_two)['data'])
-        subject_data_sources_api ='{0} {1}'.format(
-                    ''.join(get_subject_one_data_dictservice(p.subject_one)['sources']),
-                    ''.join(get_subject_two_data_dictservice(p.subject_two)['sources']),
-                )
-
-        obj = DifferncePage.objects.get(subject_one=p.subject_one,subject_two=p.subject_two)
-        obj.subject_one_data_dictservice = subject_one_description_dictservice
-        obj.subject_two_data_dictservice = subject_two_description_dictservice
-        obj.subject_data_sources = subject_data_sources_api
-        obj.save()
-
-        print 'Done Updating Database'
-
-    ################################################ END REENTER DATA PROCESS
-
     form = DifferenceForm(auto_id=True)
     if request.method == "POST":
         form = DifferenceForm(request.POST, auto_id=True)
