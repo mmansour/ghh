@@ -24,12 +24,14 @@
 
 $(document).ready(function(){
 
-    $('input[name=subject_one]').focus(function(){
-        $(this).val('');
+    $('input[name=subject_one]').click(function(){
+//        $(this).val('');
+        $(this).select();
     });
 
-    $('input[name=subject_two]').focus(function(){
-        $(this).val('');
+    $('input[name=subject_two]').click(function(){
+//        $(this).val('');
+        $(this).select();
     });
 });
 </script>
@@ -46,15 +48,6 @@ Enter two subjects in the form below to elucidate the difference between them:
         {{ errormsg2|safe }}
         {{ form.as_p }}
         <input type="submit" value="Submit" />
-        {% comment %}<table border="0">
-        <tr>
-            <td>{{ errormsg1 }}<input type="text" id="id_subject_one" value="Apple" name="subject_one"></td>
-            <td>{{ errormsg2 }}<input type="text" id="id_subject_two" value="Orange" name="subject_two"></td>
-        </tr>
-        <tr>
-            <td colspan="2" align="right"><input type="submit" value="Submit" /></td>
-        </tr>
-       </table>{% endcomment %}
     </form>
 </div>
 
