@@ -44,8 +44,8 @@ Enter two subjects in the form below to elucidate the difference between them:
         {% csrf_token %}
         <table border="0">
         <tr>
-            <td>{{ errormsg1 }}{{ theform.subject_one.errors }}{{ theform.subject_one }}</td>
-            <td>{{ errormsg2 }}{{ theform.subject_two.errors }}{{ theform.subject_two }}</td>
+            <td>{{ errormsg1 }}<input type="text" id="id_subject_one" value="Apple" name="subject_one"></td>
+            <td>{{ errormsg2 }}<input type="text" id="id_subject_two" value="Orange" name="subject_two"></td>
         </tr>
         <tr>
             <td colspan="2" align="right"><input type="submit" value="Submit" /></td>
