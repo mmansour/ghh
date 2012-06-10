@@ -42,7 +42,9 @@ Enter two subjects in the form below to elucidate the difference between them:
 <div id="contact-form">
     <form action="" method="post" id="contact">
         {% csrf_token %}
-        <table border="0">
+        {{ form.as_p }}
+        <input type="submit" value="Submit" />
+        {% comment %}<table border="0">
         <tr>
             <td>{{ errormsg1 }}<input type="text" id="id_subject_one" value="Apple" name="subject_one"></td>
             <td>{{ errormsg2 }}<input type="text" id="id_subject_two" value="Orange" name="subject_two"></td>
@@ -50,7 +52,7 @@ Enter two subjects in the form below to elucidate the difference between them:
         <tr>
             <td colspan="2" align="right"><input type="submit" value="Submit" /></td>
         </tr>
-       </table>
+       </table>{% endcomment %}
     </form>
 </div>
 
