@@ -25,7 +25,6 @@ class DifferenceForm(forms.Form):
 @processor_for('compare')
 def get_data(request, page):
     form = DifferenceForm()
-
     if request.method == "POST":
         form = DifferenceForm(request.POST, auto_id='%s')
         if form.is_valid():
@@ -83,4 +82,4 @@ def get_data(request, page):
                 redirect = "{0}{1}/".format(request.path, page_slug)
                 return HttpResponseRedirect(redirect)
 
-    return{'form':form,}
+    return{'theform':form,}
