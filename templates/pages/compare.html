@@ -39,13 +39,10 @@ $(document).ready(function(){
 <p>
 Enter two subjects in the form below to elucidate the difference between them:
 </p>
-<div id="compare-form">
+<div id="contact-form">
     <form action="" method="post" id="contact">
         {% csrf_token %}
-        <div>{{ errormsg1 }}<label for="id_subject_one">Subject one</label><input type="text" id="id_subject_one" value="Apple" name="subject_one" /></div>
-        <div>{{ errormsg2 }}<label for="id_subject_two">Subject two</label><input type="text" id="id_subject_two" value="Orange" name="subject_two" /></div>
-        <div><input type="submit" value="Submit" /></div>
-        {% comment %}<table border="0">
+        <table border="0">
         <tr>
             <td>{{ errormsg1 }}{{ form.subject_one.errors }}{{ form.subject_one }}</td>
             <td>{{ errormsg2 }}{{ form.subject_two.errors }}{{ form.subject_two }}</td>
@@ -53,7 +50,7 @@ Enter two subjects in the form below to elucidate the difference between them:
         <tr>
             <td colspan="2" align="right"><input type="submit" value="Submit" /></td>
         </tr>
-       </table>{% endcomment %}
+       </table>
     </form>
 </div>
 
