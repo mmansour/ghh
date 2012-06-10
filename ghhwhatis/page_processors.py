@@ -19,8 +19,8 @@ def get_atoz(request, page):
 
 
 class DifferenceForm(forms.Form):
-    subject_one = forms.CharField(initial='Subject One')
-    subject_two = forms.CharField(initial='Subject Two')
+    subject_one = forms.CharField(initial='Apple')
+    subject_two = forms.CharField(initial='Orange')
 
 @processor_for('compare')
 def get_data(request, page):
@@ -49,7 +49,7 @@ def get_data(request, page):
                 return HttpResponseRedirect(redirect)
 
             except DifferncePage.DoesNotExist:
-                print 'obj does not exist'
+                print 'This Comparison Does Not Exist. Create It'
                 
                 try:
                     subject_one_subject=get_subject_one_data(word_list_sorted[0])['query']
