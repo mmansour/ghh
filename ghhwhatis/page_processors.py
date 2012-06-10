@@ -55,7 +55,7 @@ def get_data(request, page):
                 try:
                     subject_one_subject=get_subject_one_data(word_list_sorted[0])['query']
                     subject_one_description = get_subject_one_data(word_list_sorted[0])['description']
-                    subject_one_description_dictservice ='<p />'.join(get_subject_one_data_dictservice(word_list_sorted[0])['data'])
+                    subject_one_description_dictservice =''.join(get_subject_one_data_dictservice(word_list_sorted[0])['data'])
                 except Exception:
                     errormsg1 = "<strong>Subject #1 Not Found</strong>: <ul><li>Check spelling</li><li>Make singular</li><li>Could be tech glitch!</li></ul>"
                     return{'form':form,'errormsg1':errormsg1}
@@ -63,14 +63,14 @@ def get_data(request, page):
                 try:
                     subject_two_subject=get_subject_two_data(word_list_sorted[1])['query']
                     subject_two_description = get_subject_two_data(word_list_sorted[1])['description']
-                    subject_two_description_dictservice ='<p />'.join(get_subject_two_data_dictservice(word_list_sorted[1])['data'])
+                    subject_two_description_dictservice =''.join(get_subject_two_data_dictservice(word_list_sorted[1])['data'])
                 except Exception:
                     errormsg2 = "<strong>Subject #2 Not Found</strong>: <ul><li>Check spelling</li><li>Make singular</li><li>Could be tech glitch!</li></ul>"
                     return{'form':form,'errormsg2':errormsg2}
 
-                subject_data_sources_api ='<ul><li />{0} {1}</ul>'.format(
-                    '<li />'.join(get_subject_one_data_dictservice(word_list_sorted[0])['sources']),
-                    '<li />'.join(get_subject_two_data_dictservice(word_list_sorted[1])['sources']),
+                subject_data_sources_api ='{0} {1}'.format(
+                    ''.join(get_subject_one_data_dictservice(word_list_sorted[0])['sources']),
+                    ''.join(get_subject_two_data_dictservice(word_list_sorted[1])['sources']),
                 )
 
                 obj = DifferncePage(title=page_title, subject_one=subject_one_subject, subject_two=subject_two_subject,

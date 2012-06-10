@@ -42,8 +42,8 @@ def get_subject_one_data_dictservice(data):
     subject_one_data_list = []
 
     for datasource, datavalue in subject_one_dict_dictservice['datalist']:
-         subject_one_source_list.append(datasource)
-         subject_one_data_list.append(datavalue)
+         subject_one_source_list.append("<li>{0}</li>".format(datasource))
+         subject_one_data_list.append("<p>{0}</p>".format(datavalue))
         
     subject_one_data['sources'] = subject_one_source_list
     subject_one_data['data'] = subject_one_data_list
@@ -62,8 +62,8 @@ def get_subject_two_data_dictservice(data):
     subject_two_data_list = []
 
     for datasource, datavalue in subject_two_dict_dictservice['datalist']:
-         subject_two_source_list.append(datasource)
-         subject_two_data_list.append(datavalue)
+         subject_two_source_list.append("<li>{0}</li>".format(datasource))
+         subject_two_data_list.append("<p>{0}</p>".format(datavalue))
 
     subject_two_data['sources'] = subject_two_source_list
     subject_two_data['data'] = subject_two_data_list
