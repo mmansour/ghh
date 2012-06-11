@@ -36,13 +36,13 @@ def get_subject_one_data_dictservice(data):
 #    print client.service.Define(data)
     subject_one_dict_dictservice['query'] = client.service.Define(data)[0]
     subject_one_dict_dictservice['datalist'] = [[d.Dictionary.Name,d.WordDefinition]
-                                                for d in client.service.Define(data)[1].Definition]
+                                                for d in reversed(client.service.Define(data)[1].Definition)]
     subject_one_data = {}
     subject_one_source_list = []
     subject_one_data_list = []
 
     for datasource, datavalue in subject_one_dict_dictservice['datalist']:
-         subject_one_source_list.append("<li>{0}</li>".format(datasource))
+         subject_one_source_list.append("<li><em>{0}</em>: {1}</li>".format(data, datasource))
          subject_one_data_list.append("<p>{0}</p>".format(datavalue))
         
     subject_one_data['sources'] = subject_one_source_list
@@ -56,13 +56,13 @@ def get_subject_two_data_dictservice(data):
 #    print client.service.Define(data)
     subject_two_dict_dictservice['query'] = client.service.Define(data)[0]
     subject_two_dict_dictservice['datalist'] = [[d.Dictionary.Name,d.WordDefinition]
-                                                for d in client.service.Define(data)[1].Definition]
+                                                for d in reversed(client.service.Define(data)[1].Definition)]
     subject_two_data = {}
     subject_two_source_list = []
     subject_two_data_list = []
 
     for datasource, datavalue in subject_two_dict_dictservice['datalist']:
-         subject_two_source_list.append("<li>{0}</li>".format(datasource))
+         subject_two_source_list.append("<li><em>{0}</em>: {1}</li>".format(data,datasource))
          subject_two_data_list.append("<p>{0}</p>".format(datavalue))
 
     subject_two_data['sources'] = subject_two_source_list
