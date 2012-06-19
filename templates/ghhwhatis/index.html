@@ -29,9 +29,9 @@ This page describes the differences and nuances between {{ diffdata.title }}
 <div>
 {% if diffdata.allow_comments %}(<a href="#comments">{% spaceless %}
     {% blocktrans count diffdata.comments_count as comments_count %}
-    1 answer
+    1 Comparison
     {% plural %}
-    {{ comments_count }} answers
+    {{ comments_count }} Comparisons
     {% endblocktrans %}
 {% endspaceless %}</a>){% endif %}
 </div>
@@ -63,9 +63,9 @@ This page describes the differences and nuances between {{ diffdata.title }}
     <div>
     {% if diffdata.allow_comments %}(<a href="#comments">{% spaceless %}
         {% blocktrans count diffdata.comments_count as comments_count %}
-        1 answer
+        1 Comparison
         {% plural %}
-        {{ comments_count }} answers
+        {{ comments_count }} Comparisons
         {% endblocktrans %}
     {% endspaceless %}</a>){% endif %}
     </div>
