@@ -25,6 +25,19 @@ This page describes the differences and nuances between {{ diffdata.title }}
 
 {% block extra_header %}<h1>{{ diffdata.title|title }}</h1>{% endblock %}
 
+{% block main_top %}
+<div>
+{% if diffdata.allow_comments %}(<a href="#comments">{% spaceless %}
+    {% blocktrans count diffdata.comments_count as comments_count %}
+    1 answer
+    {% plural %}
+    {{ comments_count }} answers
+    {% endblocktrans %}
+{% endspaceless %}</a>){% endif %}
+</div>
+<hr />
+{% endblock %}
+
 {% block leftside %}
 <div id="subject_one">
     <h2><em>{{ diffdata.subject_one|title|safe }}</em></h2>
