@@ -57,9 +57,9 @@
 
         <p>
             {% if comment.is_removed %}
-            {% trans "Comment deleted" %}
+            {% trans "Answer deleted" %}
             {% else %}
-            {% trans "Comment awaiting approval" %}
+            {% trans "Answer awaiting approval" %}
             {% endif %}
             <span class="timespan">{{ comment.submit_date|timesince }} {% trans "ago" %}</span>
         </p>
@@ -70,7 +70,7 @@
     </li>
     {% endfor %}
     {% if no_comments %}
-    <li>{% trans "There are currently no comments" %}</li>
+    <li>{% trans "There are currently no answers" %}</li>
     {% endif %}
 </ul>
 
