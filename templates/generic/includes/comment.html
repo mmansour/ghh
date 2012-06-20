@@ -10,7 +10,7 @@
 
         <strong>
             {% if comment.url %}
-            <a href="{{ comment.url }}">
+            <a href="{{ comment.url }}" rel="nofollow">
                 <img src="{% gravatar_url comment.email_hash %}">
                 {{ comment.name }}
             </a>
