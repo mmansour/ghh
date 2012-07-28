@@ -20,10 +20,10 @@ This page describes the differences and nuances between {{ diffdata.title }}
 {% endblock %}
 
 {% block extra_breadcrumb %}
-    <li>{{ diffdata.title|title }}</li>
+    <li>{{ diffdata.subject_one|title }} and {{ diffdata.subject_two|title }}</li>
 {% endblock %}
 
-{% block extra_header %}<h1>{{ diffdata.title|title }}</h1>{% endblock %}
+{% block extra_header %}<h1>{{ diffdata.subject_one|title }} and {{ diffdata.subject_two|title }}</h1>{% endblock %}
 
 {% block main_top %}
 <div>
