@@ -1,7 +1,7 @@
 {% extends "base2.html" %}
 {% load mezzanine_tags comment_tags keyword_tags rating_tags i18n  %}
 
-{% block meta_title %}{{ diffdata.title }}{% endblock %}
+{% block meta_title %}{{ diffdata.subject_one|title }} and {{ diffdata.subject_two|title }}{% endblock %}
 
 {% comment %}{% block meta_keywords %}{% metablock %}
 {% keywords_for page as keywords %}
@@ -16,7 +16,7 @@ This page describes the differences and nuances between {{ diffdata.title }}
 {% endmetablock %}{% endblock %}
 
 {% block title %}
-{{ diffdata.subject_one|title }} and {{ diffdata.subject_two|title }}
+{{ diffdata.title }}
 {% endblock %}
 
 {% block extra_breadcrumb %}
