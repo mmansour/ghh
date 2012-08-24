@@ -19,7 +19,7 @@
 </p>
 <h1><a href="/compare/">{% trans "Compare The Difference" %}</a></h1>
 
-<h2>{% trans "Most Recent Comparisons" %}</h2>
+<h2>{% trans "Ten Most Recent Comparisons" %}</h2>
 <ul>
 {% for c in most_recent %}
 <li><a href="{{ c.get_absolute_url }}">{{ c.title }}</a></li>
