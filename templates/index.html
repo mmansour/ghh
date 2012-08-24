@@ -16,7 +16,15 @@
 
 {% block main %}
 <p>{% trans "Welcome to The Difference Between - a place where you can create, compare, and comment on exactly what the difference is between two subjects. Mostly: nouns, verbs, adjectives, and adverbs. However, you can enter locations, and even people, to compare. Or create your own comparisons through comments section. What are you waiting for? "%}
-<a href="/compare/">{% trans "Compare The Difference" %}</a></p>
+</p>
+<h1><a href="/compare/">{% trans "Compare The Difference" %}</a></h1>
+
+<h2>{% trans "Most Recent Comparisons" %}</h2>
+<ul>
+{% for c in most_recent %}
+<li><a href="{{ c.get_absolute_url }}">{{ c.title }}</a></li>
+{% endfor %}
+</ul>
 
 {% endblock %}
 

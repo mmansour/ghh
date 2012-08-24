@@ -15,3 +15,11 @@ def explore_a_z(request, page_slug):
                        {'explore_alphebet_section':explore_alphebet_section, 'page_slug':page_slug},
                         context_instance=RequestContext(request))
 
+def home(request):
+    most_recent = DifferncePage.objects.filter(status=2).order_by('-publish_date')[:10]
+    return render_to_response('index.html',
+                       {'most_recent':most_recent},
+                        context_instance=RequestContext(request))
+
+
+
