@@ -27,13 +27,14 @@ This page describes the differences and nuances between {{ diffdata.title }}
 
 {% block main_top %}
 <div>
-{% if diffdata.allow_comments %}(<a href="#comments">{% spaceless %}
-    {% blocktrans count diffdata.comments_count as comments_count %}
-    1 User Comparison
-    {% plural %}
-    {{ comments_count }} User Comparisons
-    {% endblocktrans %}
-{% endspaceless %}</a>){% endif %}
+(<a href="#comments">{% spaceless %}Disqus: User Comparisons{% endspaceless %}</a>)
+{#{% if diffdata.allow_comments %}(<a href="#comments">{% spaceless %}#}
+{#    {% blocktrans count diffdata.comments_count as comments_count %}#}
+{#    1 User Comparison#}
+{#    {% plural %}#}
+{#    {{ comments_count }} User Comparisons#}
+{#    {% endblocktrans %}#}
+{#{% endspaceless %}</a>){% endif %}#}
 </div>
 <hr />
 {% endblock %}
