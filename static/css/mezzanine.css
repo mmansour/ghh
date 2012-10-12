@@ -117,3 +117,6 @@ a.btn-large, input.btn-large {width:auto; min-width:100px; margin-right:10px;}
 .image-overlay-next {right:30px;}
 .image-overlay-full {border-radius:5px; max-width:none !important; box-shadow:0 0 30px #222;}
 
+#waiting-animation{float:left; margin: 5px 0 0 17px;}
+#contact-form input[type="submit"]{float:left;}
+

@@ -2,6 +2,7 @@
 import urllib2
 from bs4 import BeautifulSoup
 from suds.client import Client
+import requests
 
 #SUBJECT 1
 def get_subject_one_data(data):
