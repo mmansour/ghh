@@ -51,9 +51,9 @@ class DifferenceForm(forms.Form):
 
 @processor_for('compare')
 def get_data(request, page):
-    form = DifferenceForm(auto_id=True)
+    form = DifferenceForm(auto_id=True,)
     if request.method == "POST":
-        form = DifferenceForm(request.POST, auto_id=True)
+        form = DifferenceForm(request.POST, auto_id=True,)
         if form.is_valid():
 
             sub_one_word = form.cleaned_data['subject_one'].lower()
@@ -108,5 +108,5 @@ def get_data(request, page):
 
                 redirect = "{0}{1}/".format(request.path, page_slug)
                 return HttpResponseRedirect(redirect)
-#    print form.as_p()
+    print form.as_p()
     return{'form':form,}
