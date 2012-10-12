@@ -61,15 +61,15 @@ This page describes the differences and nuances between {{ diffdata.title }}
         <ul>{{ diffdata.subject_data_sources|safe }}</ul>
     </div>
 
-    <div>
-    {% if diffdata.allow_comments %}(<a href="#comments">{% spaceless %}
-        {% blocktrans count diffdata.comments_count as comments_count %}
-        1 User Comparison
-        {% plural %}
-        {{ comments_count }} User Comparisons
-        {% endblocktrans %}
-    {% endspaceless %}</a>){% endif %}
-    </div>
+{#    <div>#}
+{#    {% if diffdata.allow_comments %}(<a href="#comments">{% spaceless %}#}
+{#        {% blocktrans count diffdata.comments_count as comments_count %}#}
+{#        1 User Comparison#}
+{#        {% plural %}#}
+{#        {{ comments_count }} User Comparisons#}
+{#        {% endblocktrans %}#}
+{#    {% endspaceless %}</a>){% endif %}#}
+{#    </div>#}
     <hr />
     <div>
         {% rating_for diffdata %}
