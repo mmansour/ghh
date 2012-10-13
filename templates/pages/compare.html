@@ -43,9 +43,11 @@ Enter two subjects in the form below to elucidate the difference between them:
 </p>
 <div id="contact-form">
 <form action="/compare/" method="post" id="contact">{% csrf_token %}
-{#        {{ errormsg1|safe }}#}
-{#        {{ errormsg2|safe }}#}
-{{ form.as_p }}
+{{ errormsg1|safe }}
+{{ errormsg2|safe }}
+{#{{ form.as_p }}#}
+<p><label for="id_subject_one">Subject one:</label><input type="text" name="subject_one" value="Apple" id="id_subject_one" /></p>
+<p><label for="id_subject_two">Subject two:</label><input type="text" name="subject_two" value="Orange" id="id_subject_two" /></p>
 <input type="submit" value="Submit" />
 </form>
 </div>
