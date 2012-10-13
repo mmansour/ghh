@@ -51,9 +51,9 @@ class DifferenceForm(forms.Form):
 
 @processor_for('compare')
 def get_data(request, page):
-    form = DifferenceForm(auto_id=True)
+    form = DifferenceForm()
     if request.method == "POST":
-        form = DifferenceForm(request.POST, auto_id=True)
+        form = DifferenceForm(request.POST)
         if form.is_valid():
 
             sub_one_word = form.cleaned_data['subject_one'].lower()
