@@ -54,13 +54,19 @@ Enter two subjects in the form below to elucidate the difference between them:
         {{ errormsg1|safe }}
         {{ errormsg2|safe }}
         <p>
-            {{ form.subject_one.errors }}
-            {{ form.subject_one.label_tag }} {{ form.subject_one }}
+            <label for="subject_one">Subject one</label> <input type="text" name="subject_one" value="Apple" id="subject_one" />
         </p>
         <p>
-            {{ form.subject_two.errors }}
-            {{ form.subject_two.label_tag }} {{ form.subject_two }}
+            <label for="subject_two">Subject two</label> <input type="text" name="subject_two" value="Orange" id="subject_two" />
         </p>
+{#        <p>#}
+{#            {{ form.subject_one.errors }}#}
+{#            {{ form.subject_one.label_tag }} {{ form.subject_one }}#}
+{#        </p>#}
+{#        <p>#}
+{#            {{ form.subject_two.errors }}#}
+{#            {{ form.subject_two.label_tag }} {{ form.subject_two }}#}
+{#        </p>#}
 {#        {{ form.as_p }}#}
         <input type="submit" value="Submit" />
         <div id="waiting-animation">
