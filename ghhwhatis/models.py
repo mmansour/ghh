@@ -30,7 +30,7 @@ class DifferncePage(Displayable):
 
     @models.permalink
     def get_absolute_url(self):
-        return ('ghhwhatis.views.what_is', [self.slug,])
+        return ('ghh.ghhwhatis.views.what_is', [self.slug,])
 
     def __unicode__(self):
         return self.title
