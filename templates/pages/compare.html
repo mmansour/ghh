@@ -42,13 +42,12 @@ $(document).ready(function(){
 Enter two subjects in the form below to elucidate the difference between them:
 </p>
 <div id="contact-form">
-    <form action="/compare/" method="post" id="contact">
-        {% csrf_token %}
-        {{ errormsg1|safe }}
-        {{ errormsg2|safe }}
-        {{ form.as_p }}
-        <input type="submit" value="Submit" />
-    </form>
+<form action="/compare/" method="post" id="contact">{% csrf_token %}
+{#        {{ errormsg1|safe }}#}
+{#        {{ errormsg2|safe }}#}
+{{ form.as_p }}
+<input type="submit" value="Submit" />
+</form>
 </div>
 
 {% endblock %}
