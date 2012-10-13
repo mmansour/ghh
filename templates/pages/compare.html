@@ -20,16 +20,9 @@
 {% endblock %}
 
 {% block extra_head %}
-<style type="text/css">
-#waiting-animation{display:none;}
-</style>
 <script type="text/javascript">
 
 $(document).ready(function(){
-
-    $("form#contact").submit(function(event){
-        $("div#waiting-animation").show();
-    });
 
     $('input[name=subject_one]').click(function(){
 //        $(this).val('');
@@ -53,25 +46,8 @@ Enter two subjects in the form below to elucidate the difference between them:
         {% csrf_token %}
         {{ errormsg1|safe }}
         {{ errormsg2|safe }}
-        <p>
-            <label for="subject_one">Subject one</label> <input type="text" name="subject_one" value="Apple" id="subject_one" />
-        </p>
-        <p>
-            <label for="subject_two">Subject two</label> <input type="text" name="subject_two" value="Orange" id="subject_two" />
-        </p>
-{#        <p>#}
-{#            {{ form.subject_one.errors }}#}
-{#            {{ form.subject_one.label_tag }} {{ form.subject_one }}#}
-{#        </p>#}
-{#        <p>#}
-{#            {{ form.subject_two.errors }}#}
-{#            {{ form.subject_two.label_tag }} {{ form.subject_two }}#}
-{#        </p>#}
-{#        {{ form.as_p }}#}
+        {{ form.as_p }}
         <input type="submit" value="Submit" />
-        <div id="waiting-animation">
-        <img src="{{ STATIC_URL }}mezzanine/img/loadingAnimation.gif" alt="Waiting for response" />
-        </div>
     </form>
 </div>
 
