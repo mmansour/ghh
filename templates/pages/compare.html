@@ -51,7 +51,7 @@ $(document).ready(function(){
 Enter two subjects in the form below to elucidate the difference between them:
 </p>
 <div id="contact-form">
-    <form action="/compare/" method="post" id="contact">
+    <form action="/compare/" method="post" id="contact" autocomplete="on">
         {% csrf_token %}
         {{ errormsg1|safe }}
         {{ errormsg2|safe }}
