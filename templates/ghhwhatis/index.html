@@ -27,14 +27,8 @@ This page describes the differences and nuances between {{ diffdata.title }}
 
 {% block main_top %}
 <div>
-(<a href="#comments">{% spaceless %}Disqus: User Comparisons{% endspaceless %}</a>)
-{#{% if diffdata.allow_comments %}(<a href="#comments">{% spaceless %}#}
-{#    {% blocktrans count diffdata.comments_count as comments_count %}#}
-{#    1 User Comparison#}
-{#    {% plural %}#}
-{#    {{ comments_count }} User Comparisons#}
-{#    {% endblocktrans %}#}
-{#{% endspaceless %}</a>){% endif %}#}
+(<a href="#comments">{% spaceless %}Disqus: User Comparisons{% endspaceless %}</a>) {% if diffdata.summary %}|
+    (<a href="#summary">{% spaceless %}Summary Comparison Below{% endspaceless %}</a>){% endif %}
 </div>
 <hr />
 {% endblock %}
@@ -56,20 +50,16 @@ This page describes the differences and nuances between {{ diffdata.title }}
 {% endblock %}
 
 {% block main %}
+    {% if diffdata.summary %}
+    <div id="summary">
+    <h2>Summary Comparison</h2>
+    <p>{{ diffdata.summary|safe }}</p>
+    </div>
+    {% endif %}
     <div id="data_sources">
     <h4>Data Sources: </h4>
         <ul>{{ diffdata.subject_data_sources|safe }}</ul>
     </div>
-
-{#    <div>#}
-{#    {% if diffdata.allow_comments %}(<a href="#comments">{% spaceless %}#}
-{#        {% blocktrans count diffdata.comments_count as comments_count %}#}
-{#        1 User Comparison#}
-{#        {% plural %}#}
-{#        {{ comments_count }} User Comparisons#}
-{#        {% endblocktrans %}#}
-{#    {% endspaceless %}</a>){% endif %}#}
-{#    </div>#}
     <hr />
     <div>
         {% rating_for diffdata %}

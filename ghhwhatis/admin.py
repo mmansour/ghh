@@ -12,6 +12,7 @@ class DifferncePageAdmin(DisplayableAdmin):
         ("Allow Comments",            {'fields': ['allow_comments']}),
         ("Subject One",                 {'fields': ['subject_one']}),
         ("Subject Two",                 {'fields': ['subject_two']}),
+        ("Summary",                 {'fields': ['summary']}),
         ("Subject One Data",            {'fields': ['subject_one_data']}),
         ("Subject Two Data",            {'fields': ['subject_two_data']}),
         ("Subject One Data Dict Service",            {'fields': ['subject_one_data_dictservice']}),
