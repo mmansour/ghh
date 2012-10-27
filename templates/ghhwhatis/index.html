@@ -37,6 +37,7 @@ This page describes the differences and nuances between {{ diffdata.title }}
 <div id="subject_one">
     <h2><em>{{ diffdata.subject_one|title|safe }}</em></h2>
     <p>{{ diffdata.subject_one_data|safe}}</p>
+    {% if diffdata.subject_one_video %}<p>{{ diffdata.subject_one_video|safe }}</p>{% endif %}
     {{ diffdata.subject_one_data_dictservice|safe}}
     </div>
 {% endblock %}
@@ -45,6 +46,8 @@ This page describes the differences and nuances between {{ diffdata.title }}
     <div id="subject_two">
     <h2><em>{{ diffdata.subject_two|title|safe }}</em></h2>
     <p>{{ diffdata.subject_two_data|safe }}</p>
+    {% if diffdata.subject_two_ad %}<p>{{ diffdata.subject_two_ad|safe }}</p>{% endif %}
+    {% if diffdata.subject_two_video %}<p>{{ diffdata.subject_two_video|safe }}</p>{% endif %}
     {{ diffdata.subject_two_data_dictservice|safe }}
     </div>
 {% endblock %}

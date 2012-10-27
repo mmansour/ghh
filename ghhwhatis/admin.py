@@ -13,8 +13,16 @@ class DifferncePageAdmin(DisplayableAdmin):
         ("Subject One",                 {'fields': ['subject_one']}),
         ("Subject Two",                 {'fields': ['subject_two']}),
         ("Summary",                 {'fields': ['summary']}),
+
         ("Subject One Data",            {'fields': ['subject_one_data']}),
         ("Subject Two Data",            {'fields': ['subject_two_data']}),
+
+        ("Subject One Video",            {'fields': ['subject_one_video']}),
+        ("Subject Two Video",            {'fields': ['subject_two_video']}),
+
+        ("Subject One Ad",            {'fields': ['subject_one_ad']}),
+        ("Subject Two Ad",            {'fields': ['subject_two_ad']}),
+
         ("Subject One Data Dict Service",            {'fields': ['subject_one_data_dictservice']}),
         ("Subject Two Data Dict Service",            {'fields': ['subject_two_data_dictservice']}),
         ("Data Sources",            {'fields': ['subject_data_sources']}),

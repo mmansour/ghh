@@ -14,10 +14,17 @@ class DifferncePage(Displayable):
     subject_one_data = models.TextField(blank=True, verbose_name="Subject One Data")
     subject_two_data = models.TextField(blank=True, verbose_name="Subject Two Data")
 
+    subject_one_video = models.TextField(blank=True, verbose_name="Subject One Video")
+    subject_two_video = models.TextField(blank=True, verbose_name="Subject Two Video")
+
+    subject_one_ad = models.TextField(blank=True, verbose_name="Subject One Ad")
+    subject_two_ad = models.TextField(blank=True, verbose_name="Subject Two Ad")
+
     subject_one_data_dictservice = models.TextField(blank=True, verbose_name="Subject One Data DictService")
     subject_two_data_dictservice = models.TextField(blank=True, verbose_name="Subject Two Data DictService")
     
     subject_data_sources = models.TextField(blank=True, verbose_name="Data Sources")
+    
     allow_comments = models.BooleanField(default=True)
     comments = CommentsField(verbose_name=_("Comments"))
     rating = RatingField(verbose_name=_("Rating"))
