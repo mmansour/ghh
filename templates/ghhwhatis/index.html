@@ -1,7 +1,13 @@
 {% extends "base2.html" %}
 {% load mezzanine_tags comment_tags keyword_tags rating_tags i18n  %}
 
-{% block meta_title %}{{ diffdata.subject_one|title }} and {{ diffdata.subject_two|title }}{% endblock %}
+{% block meta_title %}
+    {% if diffdata.is_title_case %}
+        {{ diffdata.subject_one|title }} and {{ diffdata.subject_two|title }}
+    {% else %}
+        {{ diffdata.subject_one }} and {{ diffdata.subject_two }}
+    {% endif %}
+{% endblock %}
 
 {% comment %}{% block meta_keywords %}{% metablock %}
 {% keywords_for page as keywords %}
@@ -20,10 +26,18 @@ This page describes the differences and nuances between {{ diffdata.title }}
 {% endblock %}
 
 {% block extra_breadcrumb %}
+    {% if diffdata.is_title_case %}
     <li>{{ diffdata.subject_one|title }} and {{ diffdata.subject_two|title }}</li>
+    {% else %}
+    <li>{{ diffdata.subject_one }} and {{ diffdata.subject_two }}</li>
+    {% endif %}
 {% endblock %}
 
-{% block extra_header %}<h1>{{ diffdata.subject_one|title }} and {{ diffdata.subject_two|title }}</h1>{% endblock %}
+{% block extra_header %}
+<h1>{% if diffdata.is_title_case %}
+{{ diffdata.subject_one|title }} and {{ diffdata.subject_two|title }}{% else %}
+{{ diffdata.subject_one }} and {{ diffdata.subject_two }}{% endif %}</h1>
+{% endblock %}
 
 {% block main_top %}
 <div>
@@ -35,7 +49,8 @@ This page describes the differences and nuances between {{ diffdata.title }}
 
 {% block leftside %}
 <div id="subject_one">
-    <h2><em>{{ diffdata.subject_one|title|safe }}</em></h2>
+
+    <h2><em>{% if diffdata.is_title_case %}{{ diffdata.subject_one|title|safe }}{% else %}{{ diffdata.subject_one|safe }}{% endif %}</em></h2>
     <p>{{ diffdata.subject_one_data|safe}}</p>
     {% if diffdata.subject_one_video %}<p>{{ diffdata.subject_one_video|safe }}</p>{% endif %}
     {{ diffdata.subject_one_data_dictservice|safe}}
@@ -44,7 +59,7 @@ This page describes the differences and nuances between {{ diffdata.title }}
 
 {% block rightside %}
     <div id="subject_two">
-    <h2><em>{{ diffdata.subject_two|title|safe }}</em></h2>
+    <h2><em>{% if diffdata.is_title_case %}{{ diffdata.subject_two|title|safe }}{% else %}{{ diffdata.subject_two|safe }}{% endif %}</em></h2>
     <p>{{ diffdata.subject_two_data|safe }}</p>
     {% if diffdata.subject_two_ad %}<p>{{ diffdata.subject_two_ad|safe }}</p>{% endif %}
     {% if diffdata.subject_two_video %}<p>{{ diffdata.subject_two_video|safe }}</p>{% endif %}

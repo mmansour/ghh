@@ -26,6 +26,7 @@ class DifferncePage(Displayable):
     subject_data_sources = models.TextField(blank=True, verbose_name="Data Sources")
     
     allow_comments = models.BooleanField(default=True)
+    is_title_case = models.BooleanField(default=True)
     comments = CommentsField(verbose_name=_("Comments"))
     rating = RatingField(verbose_name=_("Rating"))
 

@@ -7,6 +7,7 @@ class DifferncePageAdmin(DisplayableAdmin):
 
     fieldsets = [
         ("Title",                       {'fields': ['title']}),
+        ("Title Casing?",            {'fields': ['is_title_case']}),
         ("Published Date",              {'fields': ['publish_date']}),
         ("Published Status",            {'fields': ['status']}),
         ("Allow Comments",            {'fields': ['allow_comments']}),
