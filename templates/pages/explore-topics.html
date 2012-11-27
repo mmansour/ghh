@@ -24,190 +24,268 @@
 {% endblock %}
 
 {% block main %}
-    <p>Explore the topics listed below in alphabetical order.</p>
+    <p>Explore the comparisons listed below in alphabetical order.</p>
     
     <ol style="list-style-type: none;">
-        <li>A
-            <ul>
-                {% for a in alpha_dict.a  %}
-                    <li><a href="/compare/{{ a }}/">{{ a.title }}</a></li>
-                {% endfor %}
-            </ul>
+        <li>A: <a href='/explore-topics/a/'>{{ alpha_dict.a|length }} topics</a>
+            {% if alpha_dict.a  %}
+                | (<em>Most recent comparison</em>: <a href="/compare/{{ alpha_dict.a.0 }}/">{{ alpha_dict.a.0 }}</a>)
+            {% endif %}
+{#            <ul>#}
+{#                {% for a in alpha_dict.a  %}#}
+{#                    <li><a href="/compare/{{ a }}/">{{ a.title }}</a></li>#}
+{#                {% endfor %}#}
+{#            </ul>#}
         </li>
-        <li>B
-            <ul>
-                {% for b in alpha_dict.b  %}
-                    <li><a href="/compare/{{ b }}/">{{ b.title }}</a></li>
-                {% endfor %}
-            </ul>
+        <li>B: <a href='/explore-topics/b/'>{{ alpha_dict.b|length }} topics</a>
+            {% if alpha_dict.b  %}
+                | (<em>Most recent comparison</em>: <a href="/compare/{{ alpha_dict.b.0 }}/">{{ alpha_dict.b.0 }}</a>)
+            {% endif %}
+{#            <ul>#}
+{#                {% for b in alpha_dict.b  %}#}
+{#                    <li><a href="/compare/{{ b }}/">{{ b.title }}</a></li>#}
+{#                {% endfor %}#}
+{#            </ul>#}
         </li>
-        <li>C
-            <ul>
-                {% for c in alpha_dict.c  %}
-                    <li><a href="/compare/{{ c }}/">{{ c.title }}</a></li>
-                {% endfor %}
-            </ul>
+        <li>C: <a href='/explore-topics/c/'>{{ alpha_dict.c|length }} topics</a>
+            {% if alpha_dict.c  %}
+                | (<em>Most recent comparison</em>: <a href="/compare/{{ alpha_dict.c.0 }}/">{{ alpha_dict.c.0 }}</a>)
+            {% endif %}
+{#            <ul>#}
+{#                {% for c in alpha_dict.c  %}#}
+{#                    <li><a href="/compare/{{ c }}/">{{ c.title }}</a></li>#}
+{#                {% endfor %}#}
+{#            </ul>#}
         </li>
-        <li>D
-            <ul>
-                {% for d in alpha_dict.d  %}
-                    <li><a href="/compare/{{ d }}/">{{ d.title }}</a></li>
-                {% endfor %}
-            </ul>
+        <li>D: <a href='/explore-topics/d/'>{{ alpha_dict.d|length }} topics</a>
+            {% if alpha_dict.d  %}
+                | (<em>Most recent comparison</em>: <a href="/compare/{{ alpha_dict.d.0 }}/">{{ alpha_dict.d.0 }}</a>)
+            {% endif %}
+{#            <ul>#}
+{#                {% for d in alpha_dict.d  %}#}
+{#                    <li><a href="/compare/{{ d }}/">{{ d.title }}</a></li>#}
+{#                {% endfor %}#}
+{#            </ul>#}
         </li>
-        <li>E
-            <ul>
-                {% for e in alpha_dict.e  %}
-                    <li><a href="/compare/{{ e }}/">{{ e.title }}</a></li>
-                {% endfor %}
-            </ul>
+        <li>E: <a href='/explore-topics/e/'>{{ alpha_dict.e|length }} topics</a>
+            {% if alpha_dict.e  %}
+                | (<em>Most recent comparison</em>: <a href="/compare/{{ alpha_dict.e.0 }}/">{{ alpha_dict.e.0 }}</a>)
+            {% endif %}
+{#            <ul>#}
+{#                {% for e in alpha_dict.e  %}#}
+{#                    <li><a href="/compare/{{ e }}/">{{ e.title }}</a></li>#}
+{#                {% endfor %}#}
+{#            </ul>#}
         </li>
-        <li>F
-            <ul>
-                {% for f in alpha_dict.f  %}
-                    <li><a href="/compare/{{ f }}/">{{ f.title }}</a></li>
-                {% endfor %}
-            </ul>
+        <li>F: <a href='/explore-topics/f/'>{{ alpha_dict.f|length }} topics</a>
+            {% if alpha_dict.f  %}
+                | (<em>Most recent comparison</em>: <a href="/compare/{{ alpha_dict.f.0 }}/">{{ alpha_dict.f.0 }}</a>)
+            {% endif %}
+{#            <ul>#}
+{#                {% for f in alpha_dict.f  %}#}
+{#                    <li><a href="/compare/{{ f }}/">{{ f.title }}</a></li>#}
+{#                {% endfor %}#}
+{#            </ul>#}
         </li>
-        <li>G
-            <ul>
-                {% for g in alpha_dict.g  %}
-                    <li><a href="/compare/{{ g }}/">{{ g.title }}</a></li>
-                {% endfor %}
-            </ul>
+        <li>G: <a href='/explore-topics/g/'>{{ alpha_dict.g|length }} topics</a>
+            {% if alpha_dict.g  %}
+                | (<em>Most recent comparison</em>: <a href="/compare/{{ alpha_dict.g.0 }}/">{{ alpha_dict.g.0 }}</a>)
+            {% endif %}
+{#            <ul>#}
+{#                {% for g in alpha_dict.g  %}#}
+{#                    <li><a href="/compare/{{ g }}/">{{ g.title }}</a></li>#}
+{#                {% endfor %}#}
+{#            </ul>#}
         </li>
-        <li>H
-            <ul>
-                {% for h in alpha_dict.h  %}
-                    <li><a href="/compare/{{ h }}/">{{ h.title }}</a></li>
-                {% endfor %}
-            </ul>
+        <li>H: <a href='/explore-topics/h/'>{{ alpha_dict.h|length }} topics</a>
+            {% if alpha_dict.h  %}
+                | (<em>Most recent comparison</em>: <a href="/compare/{{ alpha_dict.h.0 }}/">{{ alpha_dict.h.0 }}</a>)
+            {% endif %}
+{#            <ul>#}
+{#                {% for h in alpha_dict.h  %}#}
+{#                    <li><a href="/compare/{{ h }}/">{{ h.title }}</a></li>#}
+{#                {% endfor %}#}
+{#            </ul>#}
         </li>
-        <li>I
-            <ul>
-                {% for i in alpha_dict.i  %}
-                    <li><a href="/compare/{{ i }}/">{{ i.title }}</a></li>
-                {% endfor %}
-            </ul>
+        <li>I: <a href='/explore-topics/i/'>{{ alpha_dict.i|length }} topics</a>
+            {% if alpha_dict.i  %}
+                | (<em>Most recent comparison</em>: <a href="/compare/{{ alpha_dict.i.0 }}/">{{ alpha_dict.i.0 }}</a>)
+            {% endif %}
+{#            <ul>#}
+{#                {% for i in alpha_dict.i  %}#}
+{#                    <li><a href="/compare/{{ i }}/">{{ i.title }}</a></li>#}
+{#                {% endfor %}#}
+{#            </ul>#}
         </li>
-        <li>J
-            <ul>
-                {% for j in alpha_dict.j  %}
-                    <li><a href="/compare/{{ j }}/">{{ j.title }}</a></li>
-                {% endfor %}
-            </ul>
+        <li>J: <a href='/explore-topics/j/'>{{ alpha_dict.j|length }} topics</a>
+            {% if alpha_dict.j  %}
+                | (<em>Most recent comparison</em>: <a href="/compare/{{ alpha_dict.j.0 }}/">{{ alpha_dict.j.0 }}</a>)
+            {% endif %}
+{#            <ul>#}
+{#                {% for j in alpha_dict.j  %}#}
+{#                    <li><a href="/compare/{{ j }}/">{{ j.title }}</a></li>#}
+{#                {% endfor %}#}
+{#            </ul>#}
         </li>
-         <li>K
-            <ul>
-                {% for k in alpha_dict.k  %}
-                    <li><a href="/compare/{{ k }}/">{{ k.title }}</a></li>
-                {% endfor %}
-            </ul>
+         <li>K: <a href='/explore-topics/k/'>{{ alpha_dict.k|length }} topics</a>
+             {% if alpha_dict.k  %}
+                | (<em>Most recent comparison</em>: <a href="/compare/{{ alpha_dict.k.0 }}/">{{ alpha_dict.k.0 }}</a>)
+            {% endif %}
+{#            <ul>#}
+{#                {% for k in alpha_dict.k  %}#}
+{#                    <li><a href="/compare/{{ k }}/">{{ k.title }}</a></li>#}
+{#                {% endfor %}#}
+{#            </ul>#}
         </li>
-        <li>L
-            <ul>
-                {% for l in alpha_dict.l  %}
-                    <li><a href="/compare/{{ l }}/">{{ l.title }}</a></li>
-                {% endfor %}
-            </ul>
+        <li>L: <a href='/explore-topics/l/'>{{ alpha_dict.l|length }} topics</a>
+            {% if alpha_dict.l  %}
+                | (<em>Most recent comparison</em>: <a href="/compare/{{ alpha_dict.l.0 }}/">{{ alpha_dict.l.0 }}</a>)
+            {% endif %}
+{#            <ul>#}
+{#                {% for l in alpha_dict.l  %}#}
+{#                    <li><a href="/compare/{{ l }}/">{{ l.title }}</a></li>#}
+{#                {% endfor %}#}
+{#            </ul>#}
         </li>
-        <li>M
-            <ul>
-                {% for m in alpha_dict.m  %}
-                    <li><a href="/compare/{{ m }}/">{{ m.title }}</a></li>
-                {% endfor %}
-            </ul>
+        <li>M: <a href='/explore-topics/m/'>{{ alpha_dict.m|length }} topics</a>
+            {% if alpha_dict.m  %}
+                | (<em>Most recent comparison</em>: <a href="/compare/{{ alpha_dict.m.0 }}/">{{ alpha_dict.m.0 }}</a>)
+            {% endif %}
+{#            <ul>#}
+{#                {% for m in alpha_dict.m  %}#}
+{#                    <li><a href="/compare/{{ m }}/">{{ m.title }}</a></li>#}
+{#                {% endfor %}#}
+{#            </ul>#}
         </li>
-        <li>N
-            <ul>
-                {% for n in alpha_dict.n  %}
-                    <li><a href="/compare/{{ n }}/">{{ n.title }}</a></li>
-                {% endfor %}
-            </ul>
+        <li>N: <a href='/explore-topics/n/'>{{ alpha_dict.n|length }} topics</a>
+            {% if alpha_dict.n  %}
+                | (<em>Most recent comparison</em>: <a href="/compare/{{ alpha_dict.n.0 }}/">{{ alpha_dict.n.0 }}</a>)
+            {% endif %}
+{#            <ul>#}
+{#                {% for n in alpha_dict.n  %}#}
+{#                    <li><a href="/compare/{{ n }}/">{{ n.title }}</a></li>#}
+{#                {% endfor %}#}
+{#            </ul>#}
         </li>
-        <li>O
-            <ul>
-                {% for o in alpha_dict.o  %}
-                    <li><a href="/compare/{{ o }}/">{{ o.title }}</a></li>
-                {% endfor %}
-            </ul>
+        <li>O: <a href='/explore-topics/o/'>{{ alpha_dict.o|length }} topics</a>
+            {% if alpha_dict.o  %}
+                | (<em>Most recent comparison</em>: <a href="/compare/{{ alpha_dict.o.0 }}/">{{ alpha_dict.o.0 }}</a>)
+            {% endif %}
+{#            <ul>#}
+{#                {% for o in alpha_dict.o  %}#}
+{#                    <li><a href="/compare/{{ o }}/">{{ o.title }}</a></li>#}
+{#                {% endfor %}#}
+{#            </ul>#}
         </li>
-        <li>P
-            <ul>
-                {% for p in alpha_dict.p  %}
-                    <li><a href="/compare/{{ p }}/">{{ p.title }}</a></li>
-                {% endfor %}
-            </ul>
+        <li>P: <a href='/explore-topics/p/'>{{ alpha_dict.p|length }} topics</a>
+            {% if alpha_dict.p  %}
+                | (<em>Most recent comparison</em>: <a href="/compare/{{ alpha_dict.p.0 }}/">{{ alpha_dict.p.0 }}</a>)
+            {% endif %}
+{#            <ul>#}
+{#                {% for p in alpha_dict.p  %}#}
+{#                    <li><a href="/compare/{{ p }}/">{{ p.title }}</a></li>#}
+{#                {% endfor %}#}
+{#            </ul>#}
         </li>
-        <li>Q
-            <ul>
-                {% for q in alpha_dict.q  %}
-                    <li><a href="/compare/{{ q }}/">{{ q.title }}</a></li>
-                {% endfor %}
-            </ul>
+        <li>Q: <a href='/explore-topics/q/'>{{ alpha_dict.q|length }} topics</a>
+            {% if alpha_dict.q  %}
+                | (<em>Most recent comparison</em>: <a href="/compare/{{ alpha_dict.q.0 }}/">{{ alpha_dict.q.0 }}</a>)
+            {% endif %}
+{#            <ul>#}
+{#                {% for q in alpha_dict.q  %}#}
+{#                    <li><a href="/compare/{{ q }}/">{{ q.title }}</a></li>#}
+{#                {% endfor %}#}
+{#            </ul>#}
         </li>
-        <li>R
-            <ul>
-                {% for r in alpha_dict.r  %}
-                    <li><a href="/compare/{{ r }}/">{{ r.title }}</a></li>
-                {% endfor %}
-            </ul>
+        <li>R: <a href='/explore-topics/r/'>{{ alpha_dict.r|length }} topics</a>
+            {% if alpha_dict.r  %}
+                | (<em>Most recent comparison</em>: <a href="/compare/{{ alpha_dict.r.0 }}/">{{ alpha_dict.r.0 }}</a>)
+            {% endif %}
+{#            <ul>#}
+{#                {% for r in alpha_dict.r  %}#}
+{#                    <li><a href="/compare/{{ r }}/">{{ r.title }}</a></li>#}
+{#                {% endfor %}#}
+{#            </ul>#}
         </li>
-        <li>S
-            <ul>
-                {% for s in alpha_dict.s  %}
-                    <li><a href="/compare/{{ s }}/">{{ s.title }}</a></li>
-                {% endfor %}
-            </ul>
+        <li>S: <a href='/explore-topics/s/'>{{ alpha_dict.s|length }} topics</a>
+            {% if alpha_dict.s  %}
+                | (<em>Most recent comparison</em>: <a href="/compare/{{ alpha_dict.s.0 }}/">{{ alpha_dict.s.0 }}</a>)
+            {% endif %}
+{#            <ul>#}
+{#                {% for s in alpha_dict.s  %}#}
+{#                    <li><a href="/compare/{{ s }}/">{{ s.title }}</a></li>#}
+{#                {% endfor %}#}
+{#            </ul>#}
         </li>
-        <li>T
-            <ul>
-                {% for t in alpha_dict.t  %}
-                    <li><a href="/compare/{{ t }}/">{{ t.title }}</a></li>
-                {% endfor %}
-            </ul>
+        <li>T: <a href='/explore-topics/t/'>{{ alpha_dict.t|length }} topics</a>
+            {% if alpha_dict.t  %}
+                | (<em>Most recent comparison</em>: <a href="/compare/{{ alpha_dict.t.0 }}/">{{ alpha_dict.t.0 }}</a>)
+            {% endif %}
+{#            <ul>#}
+{#                {% for t in alpha_dict.t  %}#}
+{#                    <li><a href="/compare/{{ t }}/">{{ t.title }}</a></li>#}
+{#                {% endfor %}#}
+{#            </ul>#}
         </li>
-        <li>U
-            <ul>
-                {% for u in alpha_dict.u  %}
-                    <li><a href="/compare/{{ u }}/">{{ u.title }}</a></li>
-                {% endfor %}
-            </ul>
+        <li>U: <a href='/explore-topics/u/'>{{ alpha_dict.u|length }} topics</a>
+            {% if alpha_dict.u  %}
+                | (<em>Most recent comparison</em>: <a href="/compare/{{ alpha_dict.u.0 }}/">{{ alpha_dict.u.0 }}</a>)
+            {% endif %}
+{#            <ul>#}
+{#                {% for u in alpha_dict.u  %}#}
+{#                    <li><a href="/compare/{{ u }}/">{{ u.title }}</a></li>#}
+{#                {% endfor %}#}
+{#            </ul>#}
         </li>
-        <li>V
-            <ul>
-                {% for v in alpha_dict.v  %}
-                    <li><a href="/compare/{{ v }}/">{{ v.title }}</a></li>
-                {% endfor %}
-            </ul>
+        <li>V: <a href='/explore-topics/v/'>{{ alpha_dict.v|length }} topics</a>
+            {% if alpha_dict.v  %}
+                | (<em>Most recent comparison</em>: <a href="/compare/{{ alpha_dict.v.0 }}/">{{ alpha_dict.v.0 }}</a>)
+            {% endif %}
+{#            <ul>#}
+{#                {% for v in alpha_dict.v  %}#}
+{#                    <li><a href="/compare/{{ v }}/">{{ v.title }}</a></li>#}
+{#                {% endfor %}#}
+{#            </ul>#}
         </li>
-        <li>W
-            <ul>
-                {% for w in alpha_dict.w  %}
-                    <li><a href="/compare/{{ w }}/">{{ w.title }}</a></li>
-                {% endfor %}
-            </ul>
+        <li>W: <a href='/explore-topics/w/'>{{ alpha_dict.w|length }} topics</a>
+            {% if alpha_dict.w  %}
+                | (<em>Most recent comparison</em>: <a href="/compare/{{ alpha_dict.w.0 }}/">{{ alpha_dict.w.0 }}</a>)
+            {% endif %}
+{#            <ul>#}
+{#                {% for w in alpha_dict.w  %}#}
+{#                    <li><a href="/compare/{{ w }}/">{{ w.title }}</a></li>#}
+{#                {% endfor %}#}
+{#            </ul>#}
         </li>
-        <li>X
-            <ul>
-                {% for x in alpha_dict.x  %}
-                    <li><a href="/compare/{{ x }}/">{{ x.title }}</a></li>
-                {% endfor %}
-            </ul>
+        <li>X: <a href='/explore-topics/x/'>{{ alpha_dict.x|length }} topics</a>
+            {% if alpha_dict.x  %}
+                | (<em>Most recent comparison</em>: <a href="/compare/{{ alpha_dict.x.0 }}/">{{ alpha_dict.x.0 }}</a>)
+            {% endif %}
+{#            <ul>#}
+{#                {% for x in alpha_dict.x  %}#}
+{#                    <li><a href="/compare/{{ x }}/">{{ x.title }}</a></li>#}
+{#                {% endfor %}#}
+{#            </ul>#}
         </li>
-        <li>Y
-            <ul>
-                {% for y in alpha_dict.y  %}
-                    <li><a href="/compare/{{ y }}/">{{ y.title }}</a></li>
-                {% endfor %}
-            </ul>
+        <li>Y: <a href='/explore-topics/y/'>{{ alpha_dict.y|length }} topics</a>
+            {% if alpha_dict.y  %}
+                | (<em>Most recent comparison</em>: <a href="/compare/{{ alpha_dict.y.0 }}/">{{ alpha_dict.y.0 }}</a>)
+            {% endif %}
+{#            <ul>#}
+{#                {% for y in alpha_dict.y  %}#}
+{#                    <li><a href="/compare/{{ y }}/">{{ y.title }}</a></li>#}
+{#                {% endfor %}#}
+{#            </ul>#}
         </li>
-        <li>Z
-            <ul>
-                {% for z in alpha_dict.z  %}
-                    <li><a href="/compare/{{ z }}/">{{ z.title }}</a></li>
-                {% endfor %}
-            </ul>
+        <li>Z: <a href='/explore-topics/z/'>{{ alpha_dict.z|length }} topics</a>
+            {% if alpha_dict.z  %}
+                | (<em>Most recent comparison</em>: <a href="/compare/{{ alpha_dict.z.0 }}/">{{ alpha_dict.z.0 }}</a>)
+            {% endif %}
+{#            <ul>#}
+{#                {% for z in alpha_dict.z  %}#}
+{#                    <li><a href="/compare/{{ z }}/">{{ z.title }}</a></li>#}
+{#                {% endfor %}#}
+{#            </ul>#}
         </li>
     </ol>
 

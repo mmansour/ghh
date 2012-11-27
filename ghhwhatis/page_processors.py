@@ -37,7 +37,7 @@ def updatedb():
 def get_atoz(request, page):
     alphabet_list = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
     alpha_dict = {}
-    diffpages = DifferncePage.objects.all().order_by('slug')
+    diffpages = DifferncePage.objects.filter(status=2).order_by('-publish_date')
     for l in alphabet_list:
         alpha_dict[l] =  [dp.slug for dp in diffpages if dp.slug[0] == l]
 
