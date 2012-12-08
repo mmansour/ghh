@@ -43,6 +43,7 @@ This page describes the differences and nuances between {{ diffdata.title }}
 <div>
 (<a href="#comments">{% spaceless %}Disqus: User Comparisons{% endspaceless %}</a>) {% if diffdata.summary %}|
     (<a href="#summary">{% spaceless %}Summary Comparison Below{% endspaceless %}</a>){% endif %}
+    <span style="float:right; margin: 0 7px 0 0;"><div class="fb-like" data-send="true" data-layout="button_count" data-width="450" data-show-faces="true"></div></span>
 </div>
 <hr />
 {% if diffdata.summary %}
@@ -91,4 +92,15 @@ This page describes the differences and nuances between {{ diffdata.title }}
     <div>
         {% if diffdata.allow_comments %}{% comments_for diffdata %}{% endif %}
     </div>
+{% endblock %}
+
+{% block extra_footer %}
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
 {% endblock %}
