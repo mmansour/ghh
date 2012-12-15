@@ -62,7 +62,7 @@ This page describes the differences and nuances between {{ diffdata.title }}
     <p>{{ diffdata.subject_one_data|safe}}</p>
     {% if diffdata.subject_one_video %}<p>{{ diffdata.subject_one_video|safe }}</p>{% endif %}
     {{ diffdata.subject_one_data_dictservice|safe}}
-    </div>
+</div>
 {% endblock %}
 
 {% block rightside %}
@@ -82,6 +82,19 @@ This page describes the differences and nuances between {{ diffdata.title }}
 {#    <p>{{ diffdata.summary|safe }}</p>#}
 {#    </div>#}
 {#    {% endif %}#}
+    <div id="ad-unit"><script type="text/javascript"><!--
+google_ad_client = "ca-pub-0101464991296411";
+/* TheDiffHorizLargeLinkUnit */
+google_ad_slot = "1643609553";
+google_ad_width = 728;
+google_ad_height = 15;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+    </div>
+    <hr />
     <div id="data_sources">
     <h4>Data Sources: </h4>
         <ul>{{ diffdata.subject_data_sources|safe }}</ul>
