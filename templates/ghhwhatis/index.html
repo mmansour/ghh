@@ -63,6 +63,7 @@ This page describes the differences and nuances between {{ diffdata.title }}
     {% if diffdata.subject_one_video %}<p>{{ diffdata.subject_one_video|safe }}</p>{% endif %}
     {{ diffdata.subject_one_data_dictservice|safe}}
 </div>
+{% if settings.SHOW_ADS %}
 <div id="left-ad-unit">
 <script type="text/javascript"><!--
 google_ad_client = "ca-pub-0101464991296411";
@@ -76,6 +77,7 @@ google_ad_height = 250;
 src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
 </script>
 </div>
+{% endif %}
 {% endblock %}
 
 {% block rightside %}
