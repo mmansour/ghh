@@ -69,7 +69,7 @@ def compare(request):
                     subject_one_description = get_subject_one_data(word_list_sorted[0])['description']
                     subject_one_description_dictservice =''.join(get_subject_one_data_dictservice(word_list_sorted[0])['data'])
                 except Exception:
-                    errormsg1 = "<strong>Subject #1 Not Found</strong>: <ul><li>Check spelling</li><li>Make singular</li><li>Could be tech glitch!</li></ul>"
+                    errormsg1 = "<strong>Error occured (Subject One)</strong>: <ul><li>Tech glitch!</li></ul>"
 #                    return{'form':form,'errormsg1':errormsg1}
                     return render_to_response('pages/compare.html',
                        {'form':form,'errormsg1':errormsg1},
@@ -80,7 +80,7 @@ def compare(request):
                     subject_two_description = get_subject_two_data(word_list_sorted[1])['description']
                     subject_two_description_dictservice =''.join(get_subject_two_data_dictservice(word_list_sorted[1])['data'])
                 except Exception:
-                    errormsg2 = "<strong>Subject #2 Not Found</strong>: <ul><li>Check spelling</li><li>Make singular</li><li>Could be tech glitch!</li></ul>"
+                    errormsg2 = "<strong>Error occured (Subject Two)</strong>: <ul><li>Tech glitch!</li></ul>"
 #                    return{'form':form,'errormsg2':errormsg2}
                     return render_to_response('pages/compare.html',
                        {'form':form,'errormsg2':errormsg2},
