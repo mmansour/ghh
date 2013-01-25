@@ -9,9 +9,6 @@ from ghhwhatis.data_apis import *
 from django.utils.translation import ugettext_lazy as _
 
 
-
-
-
 def what_is(request, page_slug):
     diffdata = get_object_or_404(DifferncePage, slug=page_slug)
     return render_to_response('ghhwhatis/index.html',
@@ -62,7 +59,7 @@ def compare(request):
                 return HttpResponseRedirect(redirect)
 
             except DifferncePage.DoesNotExist:
-                print 'This Comparison Does Not Exist. Create It'
+#                print 'This Comparison Does Not Exist. Create It'
 
                 try:
                     subject_one_subject=get_subject_one_data(word_list_sorted[0])['query']
