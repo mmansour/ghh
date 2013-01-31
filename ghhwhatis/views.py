@@ -34,7 +34,7 @@ def home(request):
 class DifferenceForm(forms.Form):
     subject_one = forms.CharField(initial='Apple')
     subject_two = forms.CharField(initial='Orange')
-    captcha = CaptchaField()
+#    captcha = CaptchaField()
 
 
 def compare(request):
