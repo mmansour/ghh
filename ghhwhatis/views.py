@@ -6,6 +6,7 @@ from django.http import HttpResponse, Http404, HttpResponsePermanentRedirect, Ht
 
 from mezzanine.utils.urls import slugify
 from ghhwhatis.data_apis import *
+from captcha.fields import CaptchaField
 from django.utils.translation import ugettext_lazy as _
 
 
@@ -33,6 +34,8 @@ def home(request):
 class DifferenceForm(forms.Form):
     subject_one = forms.CharField(initial='Apple')
     subject_two = forms.CharField(initial='Orange')
+    captcha = CaptchaField()
+
 
 def compare(request):
     form = DifferenceForm(auto_id=True)
