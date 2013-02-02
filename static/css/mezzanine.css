@@ -12,6 +12,7 @@ p, ul {line-height:22px; margin-top:5px; margin-bottom:15px;}
 li {line-height:20px;}
 img {box-shadow:0 0 10px #bbb;}
 
+#left-ad-unit{clear:both; margin-top: 7px;}
 
 /* Navigation */
 .navbar {z-index:500;}
