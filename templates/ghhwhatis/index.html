@@ -2,9 +2,7 @@
 {% load mezzanine_tags comment_tags keyword_tags rating_tags i18n  %}
 
 {% block meta_title %}
-{% if diffdata.is_title_case %}{{ diffdata.subject_one|title }} and {{ diffdata.subject_two|title }}
-{% else %}{{ diffdata.subject_one }} and {{ diffdata.subject_two }}
-{% endif %}
+{% if diffdata.is_title_case %}{{ diffdata.subject_one|title }} and {{ diffdata.subject_two|title }}{% else %}{{ diffdata.subject_one }} and {{ diffdata.subject_two }}{% endif %}
 {% endblock %}
 
 {% comment %}{% block meta_keywords %}{% metablock %}
