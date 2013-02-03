@@ -60,7 +60,7 @@ def get_subject_one_data_dictservice(data):
         subject_one_data['data'] = subject_one_data_list
     except AttributeError:
         subject_one_data['sources'] = ""
-        subject_one_data['data'] = "Additional data for {0} may be on the way.".format(data)
+        subject_one_data['data'] = "<p>Additional data for {0} may be on the way.</p>".format(data)
     return subject_one_data
 
 
@@ -84,7 +84,7 @@ def get_subject_two_data_dictservice(data):
         subject_two_data['data'] = subject_two_data_list
     except AttributeError:
         subject_two_data['sources'] = ""
-        subject_two_data['data'] = "Additional data for {0} may be on the way.".format(data)
+        subject_two_data['data'] = "<p>Additional data for {0} may be on the way.</p>".format(data)
     return subject_two_data
 
 #print get_subject_one_data('new york')
