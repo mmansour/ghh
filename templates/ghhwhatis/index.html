@@ -2,11 +2,9 @@
 {% load mezzanine_tags comment_tags keyword_tags rating_tags i18n  %}
 
 {% block meta_title %}
-    {% if diffdata.is_title_case %}
-        {{ diffdata.subject_one|title }} and {{ diffdata.subject_two|title }}
-    {% else %}
-        {{ diffdata.subject_one }} and {{ diffdata.subject_two }}
-    {% endif %}
+{% if diffdata.is_title_case %}{{ diffdata.subject_one|title }} and {{ diffdata.subject_two|title }}
+{% else %}{{ diffdata.subject_one }} and {{ diffdata.subject_two }}
+{% endif %}
 {% endblock %}
 
 {% comment %}{% block meta_keywords %}{% metablock %}
@@ -23,6 +21,19 @@ This page describes the differences and nuances between {{ diffdata.title }}
 
 {% block title %}
 {{ diffdata.title }}
+{% endblock %}
+
+{% block extra_head %}
+
+<meta property="og:title" content="{% if settings.SITE_TITLE %}{{ settings.SITE_TITLE }}{% endif %} {% if diffdata.is_title_case %}{{ diffdata.subject_one|title }} and {{ diffdata.subject_two|title }}
+{% else %}{{ diffdata.subject_one }} and {{ diffdata.subject_two }}
+{% endif %}" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://{{ request.META.HTTP_HOST }}{{ diffdata.get_absolute_url }}" />
+<meta property="og:image" content="http://whatis.thedifferencebetween.com/static/img/thedifferencebetween.jpg" />
+<meta property="og:site_name" content="The Difference Between" />
+<meta property="fb:admins" content="100001533349176" />
+
 {% endblock %}
 
 {% block extra_breadcrumb %}
