@@ -30,6 +30,10 @@ class DifferncePage(Displayable):
     comments = CommentsField(verbose_name=_("Comments"))
     rating = RatingField(verbose_name=_("Rating"))
 
+    def get_related_content(self):
+        related_data = DifferncePage.objects.filter(subject_one='foot')
+        return related_data
+
     @models.permalink
     def get_absolute_url(self):
         return ('ghh.ghhwhatis.views.what_is', [self.slug,])

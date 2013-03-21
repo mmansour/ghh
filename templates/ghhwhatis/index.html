@@ -114,6 +114,14 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
     </div>
     <hr />
     <div>
+        <ul>
+        {% for rel in diffdata.get_related_content %}
+            <li>{{ rel.title }}</li>
+        {% endfor %}
+        </ul>
+    </div>
+    <hr />
+    <div>
         {% if diffdata.allow_comments %}{% comments_for diffdata %}{% endif %}
     </div>
 {% endblock %}
