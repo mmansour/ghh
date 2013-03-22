@@ -39,7 +39,7 @@ class DifferncePage(Displayable):
         related_data = DifferncePage.objects.filter(
             Q(subject_one__iexact=self.subject_one) | Q(subject_two__iexact=self.subject_one)
             | Q(subject_two__iexact=self.subject_two) | Q(subject_one__iexact=self.subject_two)
-        )[:10]
+        )[:7]
         return related_data
 
     def __unicode__(self):
