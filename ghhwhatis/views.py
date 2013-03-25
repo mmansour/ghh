@@ -72,8 +72,8 @@ def compare(request):
                     errormsg1 = "<strong>Error occured (Subject One)</strong>: <ul><li>Tech glitch!</li></ul>"
 #                    return{'form':form,'errormsg1':errormsg1}
                     return render_to_response('pages/compare.html',
-                       {'form':form,'errormsg1':errormsg1},
-                        context_instance=RequestContext(request))
+                                              {'form': form, 'errormsg1': errormsg1},
+                                              context_instance=RequestContext(request))
 
                 try:
                     subject_two_subject=get_subject_two_data(word_list_sorted[1])['query']
@@ -83,8 +83,8 @@ def compare(request):
                     errormsg2 = "<strong>Error occured (Subject Two)</strong>: <ul><li>Tech glitch!</li></ul>"
 #                    return{'form':form,'errormsg2':errormsg2}
                     return render_to_response('pages/compare.html',
-                       {'form':form,'errormsg2':errormsg2},
-                        context_instance=RequestContext(request))
+                                              {'form': form, 'errormsg2':errormsg2},
+                                              context_instance=RequestContext(request))
 
                 subject_data_sources_api ='{0} {1}'.format(
                     ''.join(get_subject_one_data_dictservice(word_list_sorted[0])['sources']),
@@ -93,17 +93,16 @@ def compare(request):
 
                 obj = DifferncePage(title=page_title, subject_one=subject_one_subject, subject_two=subject_two_subject,
                                     subject_one_data=subject_one_description,
-                                   subject_two_data=subject_two_description,
-                                   subject_one_data_dictservice=subject_one_description_dictservice,
-                                   subject_two_data_dictservice=subject_two_description_dictservice,
-                                   subject_data_sources = subject_data_sources_api)
+                                    subject_two_data=subject_two_description,
+                                    subject_one_data_dictservice=subject_one_description_dictservice,
+                                    subject_two_data_dictservice=subject_two_description_dictservice,
+                                    subject_data_sources = subject_data_sources_api)
                 obj.save()
 
                 redirect = "{0}{1}/".format(request.path, page_slug)
                 return HttpResponseRedirect(redirect)
     return render_to_response('pages/compare.html',
-                       {'form':form},
-                        context_instance=RequestContext(request))
+                              {'form': form}, context_instance=RequestContext(request))
 
 
 
