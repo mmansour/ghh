@@ -13,22 +13,22 @@ from django.utils.translation import ugettext_lazy as _
 def what_is(request, page_slug):
     diffdata = get_object_or_404(DifferncePage, slug=page_slug)
     return render_to_response('ghhwhatis/index.html',
-                       {'diffdata':diffdata},
-                        context_instance=RequestContext(request))
+                              {'diffdata': diffdata},
+                              context_instance=RequestContext(request))
 
 
 def explore_a_z(request, page_slug):
     explore_alphebet_section = DifferncePage.objects.filter(slug__startswith=page_slug)
     return render_to_response('pages/explore-topics-list.html',
-                       {'explore_alphebet_section':explore_alphebet_section, 'page_slug':page_slug},
-                        context_instance=RequestContext(request))
+                              {'explore_alphebet_section': explore_alphebet_section, 'page_slug': page_slug},
+                              context_instance=RequestContext(request))
 
 
 def home(request):
     most_recent = DifferncePage.objects.filter(status=2).order_by('-publish_date')[:10]
     return render_to_response('index.html',
-                       {'most_recent':most_recent},
-                        context_instance=RequestContext(request))
+                              {'most_recent': most_recent},
+                              context_instance=RequestContext(request))
 
 
 class DifferenceForm(forms.Form):
@@ -67,7 +67,7 @@ def compare(request):
                 try:
                     subject_one_subject=get_subject_one_data(word_list_sorted[0])['query']
                     subject_one_description = get_subject_one_data(word_list_sorted[0])['description']
-                    subject_one_description_dictservice =''.join(get_subject_one_data_dictservice(word_list_sorted[0])['data'])
+                    subject_one_description_dictservice = ''.join(get_subject_one_data_dictservice(word_list_sorted[0])['data'])
                 except Exception:
                     errormsg1 = "<strong>Error occured (Subject One)</strong>: <ul><li>Tech glitch!</li></ul>"
 #                    return{'form':form,'errormsg1':errormsg1}
@@ -96,7 +96,7 @@ def compare(request):
                                     subject_two_data=subject_two_description,
                                     subject_one_data_dictservice=subject_one_description_dictservice,
                                     subject_two_data_dictservice=subject_two_description_dictservice,
-                                    subject_data_sources = subject_data_sources_api)
+                                    subject_data_sources=subject_data_sources_api)
                 obj.save()
 
                 redirect = "{0}{1}/".format(request.path, page_slug)
