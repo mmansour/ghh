@@ -22,7 +22,8 @@
 <h2>{% trans "Ten Most Recent Comparisons" %}</h2>
 <ul>
 {% for c in most_recent %}
-<li><a href="{{ c.get_absolute_url }}">{{ c.title }}</a></li>
+<li><a href="{{ c.get_absolute_url }}">{{ c.title }}</a>
+{% if c.get_related_content.count > 1 %} and ({{ c.get_related_content.count|add:"-1" }} related comparisons){% endif %}</li>
 {% endfor %}
 </ul>
 
