@@ -115,7 +115,24 @@ This page describes the differences and nuances between {{ diffdata.title }}
     <div id="subject_two">
     <h2><em>{% if diffdata.is_title_case %}{{ diffdata.subject_two|title|safe }}{% else %}{{ diffdata.subject_two|safe }}{% endif %}</em></h2>
     <p>{{ diffdata.subject_two_data|safe }}</p>
-    {% if diffdata.subject_two_ad %}<p>{{ diffdata.subject_two_ad|safe }}</p>{% endif %}
+    {% if diffdata.subject_two_data_dictservice|wordcount > 900 and diffdata.subject_one_data_dictservice|wordcount > 350 %}
+        {% if not diffdata.subject_two_video %}
+        {# CHANGE THIS TO PUT SOMETHING BETWEEN THE AD AND THE VIDEO           #}
+        {# AD UNIT HERE#}
+        <script type="text/javascript"><!--
+        google_ad_client = "ca-pub-0101464991296411";
+        /* diff-right-top-320-50 */
+        google_ad_slot = "2467489958";
+        google_ad_width = 320;
+        google_ad_height = 50;
+        //-->
+        </script>
+        <script type="text/javascript"
+        src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+        </script>
+        {% endif %}
+    {% endif %}
+{#    {% if diffdata.subject_two_ad %}<p>{{ diffdata.subject_two_ad|safe }}</p>{% endif %}#}
     {% if diffdata.subject_two_video %}<p>{{ diffdata.subject_two_video|safe }}</p>{% endif %}
     {{ diffdata.subject_two_data_dictservice|safe }}
     </div>
