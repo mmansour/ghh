@@ -116,7 +116,7 @@ This page describes the differences and nuances between {{ diffdata.title }}
     <h2><em>{% if diffdata.is_title_case %}{{ diffdata.subject_two|title|safe }}{% else %}{{ diffdata.subject_two|safe }}{% endif %}</em></h2>
     <p>{{ diffdata.subject_two_data|safe }}</p>
     {% if diffdata.subject_two_data_dictservice|wordcount > 350 and diffdata.subject_one_data_dictservice|wordcount > 350 %}
-        {% if not diffdata.subject_two_video %}
+{#        {% if not diffdata.subject_two_video %}#}
         {# CHANGE THIS TO PUT SOMETHING BETWEEN THE AD AND THE VIDEO           #}
         {# AD UNIT HERE#}
         <script type="text/javascript"><!--
@@ -130,7 +130,19 @@ This page describes the differences and nuances between {{ diffdata.title }}
         <script type="text/javascript"
         src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
         </script>
+{#        {% endif %}#}
+
+        {% if diffdata.get_most_recent_content %}
+            <h4>Recent comparisons</h4>
+            <ul>
+                {% for rec in diffdata.get_most_recent_content %}
+                    {% if rec.get_absolute_url != diffdata.get_absolute_url %}
+                        <li><a href="{{ rec.get_absolute_url }}">{{ rec.title }}</a></li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
         {% endif %}
+
     {% endif %}
 {#    {% if diffdata.subject_two_ad %}<p>{{ diffdata.subject_two_ad|safe }}</p>{% endif %}#}
     {% if diffdata.subject_two_video %}<p>{{ diffdata.subject_two_video|safe }}</p>{% endif %}

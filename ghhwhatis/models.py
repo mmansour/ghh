@@ -42,6 +42,10 @@ class DifferncePage(Displayable):
         )[:7]
         return related_data
 
+    def get_most_recent_content(self):
+        most_recent_top = DifferncePage.objects.filter(status=2).order_by('-publish_date')[:7]
+        return most_recent_top
+
     def __unicode__(self):
         return self.title
 
