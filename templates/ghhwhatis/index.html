@@ -71,18 +71,18 @@ This page describes the differences and nuances between {{ diffdata.title }}
     {{ diffdata.subject_one_data_dictservice|safe}}
 
     <div id="left-subnav-unit" style="float:left; margin-right: 9px;">
-    <h4><a href="/compare/">Add a comparison</a></h4>
+    <h3><a href="/compare/">Add a comparison</a></h3>
 
-    {% if diffdata.get_most_recent_content %}
-        <h4>Recent comparisons</h4>
-        <ul>
-            {% for rec in diffdata.get_most_recent_content %}
-                {% if rec.get_absolute_url != diffdata.get_absolute_url %}
-                    <li><a href="{{ rec.get_absolute_url }}">{{ rec.title }}</a></li>
-                {% endif %}
-            {% endfor %}
-        </ul>
-    {% endif %}
+{#    {% if diffdata.get_most_recent_content %}#}
+{#        <h4>Recent comparisons</h4>#}
+{#        <ul>#}
+{#            {% for rec in diffdata.get_most_recent_content %}#}
+{#                {% if rec.get_absolute_url != diffdata.get_absolute_url %}#}
+{#                    <li><a href="{{ rec.get_absolute_url }}">{{ rec.title }}</a></li>#}
+{#                {% endif %}#}
+{#            {% endfor %}#}
+{#        </ul>#}
+{#    {% endif %}#}
 
 
 
