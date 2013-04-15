@@ -18,6 +18,9 @@ class DifferncePage(Displayable):
     subject_one_video = models.TextField(blank=True, verbose_name="Subject One Video")
     subject_two_video = models.TextField(blank=True, verbose_name="Subject Two Video")
 
+    subject_one_image = models.ImageField(upload_to="uploads", blank=True, null=True, default='uploads/default.png')
+    subject_two_image = models.ImageField(upload_to="uploads", blank=True, null=True, default='uploads/default.png')
+
     subject_one_ad = models.TextField(blank=True, verbose_name="Subject One Ad")
     subject_two_ad = models.TextField(blank=True, verbose_name="Subject Two Ad")
 

@@ -68,6 +68,9 @@ This page describes the differences and nuances between {{ diffdata.title }}
     <h2><em>{% if diffdata.is_title_case %}{{ diffdata.subject_one|title|safe }}{% else %}{{ diffdata.subject_one|safe }}{% endif %}</em></h2>
     <p>{{ diffdata.subject_one_data|safe}}</p>
     {% if diffdata.subject_one_video %}<p>{{ diffdata.subject_one_video|safe }}</p>{% endif %}
+    {% if diffdata.subject_one_image %}
+        <img src="{{ STATIC_URL }}media/{% thumbnail img.img 320 215 %}" alt="{{ diffdata.subject_one|title|safe }}"/>
+    {% endif %}
     {{ diffdata.subject_one_data_dictservice|safe}}
 
     <div id="left-subnav-unit" style="float:left; margin-right: 9px;">
