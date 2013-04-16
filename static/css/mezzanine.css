@@ -63,6 +63,9 @@ a.btn-large, input.btn-large {width:auto; min-width:100px; margin-right:10px;}
 #account .middle form {padding-top:20px;}
 #account fieldset {float:left; width:40%; margin-right:50px;}
 
+/* Diff Page */
+.diffimages{margin:17px 0 17px 0;}
+
 
 /* Blog */
 .recent-posts li {margin:5px 0;}

@@ -21,6 +21,9 @@ class DifferncePageAdmin(DisplayableAdmin):
         ("Subject One Video",            {'fields': ['subject_one_video']}),
         ("Subject Two Video",            {'fields': ['subject_two_video']}),
 
+        ("Subject One Image",            {'fields': ['subject_one_image']}),
+        ("Subject Two Image",            {'fields': ['subject_two_image']}),
+
         ("Subject One Ad",            {'fields': ['subject_one_ad']}),
         ("Subject Two Ad",            {'fields': ['subject_two_ad']}),
 
