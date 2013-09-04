@@ -35,7 +35,9 @@ $(function() {
 <![endif]-->
 
 {% block extra_head %}{% endblock %}
-
+<script type="text/javascript">var switchTo5x=false;</script>
+<script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
+<script type="text/javascript">stLight.options({publisher: "e2f3c702-18ba-49ba-94f5-c1346c29e214", doNotHash: false, doNotCopy: false, hashAddressBar: false});</script>
 </head>
 <body id="{% block body_id %}body{% endblock %}">
 
@@ -91,10 +93,17 @@ $(function() {
 <div class="span3 right">
     {% include "includes/user_panel.html" %}
     <div class="panel">
+
     {% block right_panel %}
-    {% if "mezzanine.twitter"|is_installed %}
+    <span class='st_sharethis_large' displayText='ShareThis'></span>
+    <span class='st_facebook_large' displayText='Facebook'></span>
+    <span class='st_twitter_large' displayText='Tweet'></span>
+    <span class='st_linkedin_large' displayText='LinkedIn'></span>
+    <span class='st_pinterest_large' displayText='Pinterest'></span>
+    <span class='st_email_large' displayText='Email'></span>
+   {% comment %} {% if "mezzanine.twitter"|is_installed %}
     {% include "twitter/tweets.html" %}
-    {% endif %}
+    {% endif %}{% endcomment %}
     {% endblock %}
     </div>
 </div>
