@@ -92,19 +92,23 @@ $(function() {
 
 <div class="span3 right">
     {% include "includes/user_panel.html" %}
+    {% block right_panel_links %}
     <div class="panel">
-
-    {% block right_panel %}
-    <span class='st_sharethis_large'></span>
-    <span class='st_facebook_large'></span>
-    <span class='st_twitter_large'></span>
-    <span class='st_linkedin_large'></span>
-    <span class='st_pinterest_large'></span>
-    <span class='st_email_large'></span>
-   {% comment %} {% if "mezzanine.twitter"|is_installed %}
-    {% include "twitter/tweets.html" %}
-    {% endif %}{% endcomment %}
+        <a href="/compare/" class="btn btn-large btn-success">Compare</a>
+    </div>
     {% endblock %}
+    <div class="panel">
+        {% block right_panel %}
+        <span class='st_sharethis_large'></span>
+        <span class='st_facebook_large'></span>
+        <span class='st_twitter_large'></span>
+        <span class='st_linkedin_large'></span>
+        <span class='st_pinterest_large'></span>
+        <span class='st_email_large'></span>
+       {% comment %} {% if "mezzanine.twitter"|is_installed %}
+        {% include "twitter/tweets.html" %}
+        {% endif %}{% endcomment %}
+        {% endblock %}
     </div>
 </div>
 
