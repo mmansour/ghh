@@ -43,7 +43,7 @@ This page describes the differences and nuances between {{ diffdata.title }}
 {% endblock %}
 
 {% block extra_header %}
-<h1>{% if diffdata.is_title_case %}
+<h1>Let's Compare {% if diffdata.is_title_case %}
 {{ diffdata.subject_one|title }} and {{ diffdata.subject_two|title }}{% else %}
 {{ diffdata.subject_one }} and {{ diffdata.subject_two }}{% endif %}</h1>
 {% endblock %}

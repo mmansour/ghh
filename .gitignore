@@ -19,5 +19,6 @@ log/
 migrations/
 static/media/
 !ghhwhatis/urls.py
+ghh2
 
 
