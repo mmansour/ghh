@@ -36,9 +36,9 @@ This page describes the differences and nuances between {{ diffdata.title }}
 
 {% block extra_breadcrumb %}
     {% if diffdata.is_title_case %}
-    <li>{{ diffdata.subject_one|upper }} & {{ diffdata.subject_two|upper }}</li>
+    <li>{{ diffdata.subject_one|upper }} VS. {{ diffdata.subject_two|upper }}</li>
     {% else %}
-    <li>{{ diffdata.subject_one }} and {{ diffdata.subject_two }}</li>
+    <li>{{ diffdata.subject_one }} vs. {{ diffdata.subject_two }}</li>
     {% endif %}
 {% endblock %}
 
